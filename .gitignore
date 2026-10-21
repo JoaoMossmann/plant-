@@ -4,3 +4,23 @@ dist/
 .env.*
 !.env.example
 *.log
+
+# Dados pessoais locais e exportações do jardim
+/backups/
+/private/
+/uploads/
+meu-jardim-*.json
+
+# Credenciais e certificados privados
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Arquivos locais de ferramentas e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.local

@@ -38,15 +38,29 @@ Não são necessárias chaves ou variáveis de ambiente. `dist/` é o resultado 
 
 ## Publicar gratuitamente com GitHub Pages
 
-1. Envie o projeto à branch `main` de `usuario/plant-`.
+1. Envie o projeto à branch `main` deste repositório.
 2. No GitHub, abra **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 3. Abra **Actions → Publicar site no GitHub Pages → Run workflow → main** (ou envie um novo commit).
 4. Aguarde os jobs `build` e `deploy` concluírem. O endereço publicado aparece em **Settings → Pages** e no ambiente `github-pages`.
 5. Abra a URL no celular e no computador. Cadastre uma planta e faça um backup para validar seu uso real.
 
-A configuração `base: './'` permite hospedar os arquivos sob o caminho do repositório. A URL esperada é `https://usuario.github.io/plant-/`, mas só estará disponível depois de uma publicação bem-sucedida. GitHub Pages oferece hospedagem gratuita para repositórios públicos; repositórios privados dependem do plano. Antes de tornar um repositório público, confira se não há dados pessoais ou segredos.
+A configuração `base: './'` permite hospedar os arquivos sob o caminho do repositório. GitHub Pages oferece hospedagem gratuita para repositórios públicos; repositórios privados dependem do plano. A URL será informada pelo GitHub depois da publicação.
 
-Alternativas: Cloudflare Pages (comando de build `npm run build`, pasta `dist`) e Vercel (preset Vite). Os serviços têm planos gratuitos sujeitos aos termos e limites vigentes; confirme-os antes de escolher. Não é necessário comprar domínio: use o subdomínio oferecido pela hospedagem.
+Alternativas: Cloudflare Pages (comando de build `npm run build`, pasta `dist`) e Vercel (preset Vite). São opções para avaliar hospedagem com o repositório privado; disponibilidade, termos, limites e permissões de integração dependem do plano vigente. Não é necessário comprar domínio: use o subdomínio oferecido pela hospedagem.
+
+## Privacidade e repositório público
+
+O código-fonte, o README, os workflows e o histórico de commits ficam visíveis quando o repositório é público. O `.gitignore` evita a inclusão acidental de novos arquivos locais; ele não oculta arquivos já versionados nem remove versões anteriores. Nomes e e-mails de autores de commits também fazem parte do histórico. Para futuros commits, use o endereço `noreply` fornecido em **GitHub → Settings → Emails** se desejar preservar seu e-mail pessoal.
+
+Os dados do jardim ficam no IndexedDB do navegador, separados do código do site. Eles não são publicados no repositório nem sincronizados com outros visitantes. O aplicativo não exige segredos e não envia fotos ou cadastros a um servidor. O armazenamento local não tem criptografia própria ou login: quem acessa o mesmo perfil do navegador pode acessar o jardim.
+
+- Guarde exportações pessoais nas pastas locais `backups/`, `private/` ou `uploads/`, ignoradas pelo Git. Os arquivos exportados automaticamente com o padrão `meu-jardim-*.json` também são ignorados.
+- Não adicione fotos pessoais, backups, tokens, senhas ou credenciais ao código, ao README, aos commits ou aos logs de Actions. Verifique `git status` antes de cada commit.
+- Arquivos `.env` e variantes são ignorados. Somente `.env.example`, com exemplos sem valores secretos, pode ser versionado.
+- Variáveis `VITE_*` usadas no frontend são incorporadas ao JavaScript público. Elas não devem conter segredos, mesmo quando vêm de GitHub Actions Secrets.
+- Uma futura chave de identificação de plantas deve ficar em uma função de servidor, com autenticação, limites e validação de uploads. GitHub Pages sozinho não executa esse backend.
+- Caso uma credencial seja publicada, revogue-a ou troque-a primeiro. Apagar o arquivo em um novo commit não elimina a exposição no histórico.
+- Publicar este site permite que outras pessoas abram a aplicação. Um endereço pouco divulgado não funciona como controle de acesso.
 
 ## Próximas etapas sugeridas
 
