@@ -1,0 +1,1337 @@
+[
+  {
+    "id": "jiboia",
+    "name": "Jiboia",
+    "scientific": "Epipremnum aureum",
+    "icon": "🌿",
+    "color": "#dbe8bc",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Trepadeira de folhas em coração. Gosta de luz indireta e substrato que seque parcialmente entre regas.",
+    "care": "Confira os primeiros centímetros do substrato. Regue quando estiverem secos, deixando o excesso escorrer. Proteja do frio e do sol direto forte.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/epipremnum-aureum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/epipremnum-aureum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Money plant (Epipremnum aureum).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Money_plant_(Epipremnum_aureum).jpg",
+      "author": "Mokkie",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Jiboia — exemplar de Epipremnum aureum"
+    }
+  },
+  {
+    "id": "maranta",
+    "name": "Maranta",
+    "scientific": "Maranta leuconeura",
+    "icon": "🍃",
+    "color": "#d1dfc7",
+    "light": "indireta",
+    "pets": null,
+    "water": 5,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Folhagem desenhada para um canto com claridade suave. Prefere umidade e temperaturas amenas.",
+    "care": "Mantenha o substrato levemente úmido, sem encharcar. Evite sol direto e correntes frias. No Sul, cultive protegida durante o inverno.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/maranta-leuconeura/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Maranta leuconeura 'Marisela'.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Maranta_leuconeura_%27Marisela%27.jpg",
+      "author": "KATHERINE WAGNER-REISS",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Maranta — exemplar de Maranta leuconeura"
+    }
+  },
+  {
+    "id": "zamioculca",
+    "name": "Zamioculca",
+    "scientific": "Zamioculcas zamiifolia",
+    "icon": "🌱",
+    "color": "#dce3ce",
+    "light": "baixa",
+    "pets": false,
+    "water": 15,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Folhas brilhantes e crescimento lento. Tolera pouca luz, mas se desenvolve melhor com claridade indireta.",
+    "care": "Espere o substrato secar antes de regar. Use vaso com drenagem. Pouca luz não significa ausência de luz; nenhum canto totalmente escuro serve.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/zamioculcas-zamiifolia/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/zamioculcas-zamiifolia/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Zamioculcas zamiifolia 7zz.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_7zz.jpg",
+      "author": "Photo by David J. Stang",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Zamioculca — exemplar de Zamioculcas zamiifolia"
+    }
+  },
+  {
+    "id": "espada",
+    "name": "Espada-de-são-jorge",
+    "scientific": "Dracaena trifasciata",
+    "icon": "🌾",
+    "color": "#e1e5c3",
+    "light": "baixa",
+    "pets": false,
+    "water": 15,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior / exterior",
+    "description": "Folhas verticais e resistentes. Tolera ambientes menos iluminados e períodos de seca.",
+    "care": "Deixe o substrato secar entre regas e evite água acumulada no pratinho. Acostume gradualmente ao sol. Proteja de geada.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/dracaena-trifasciata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/dracaena-trifasciata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Snake Plant (Dracaena trifasciata).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Snake_Plant_(Dracaena_trifasciata).jpg",
+      "author": "Prathvi Acharya",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Espada-de-são-jorge — exemplar de Dracaena trifasciata"
+    }
+  },
+  {
+    "id": "clorofito",
+    "name": "Clorofito",
+    "scientific": "Chlorophytum comosum",
+    "icon": "🌿",
+    "color": "#e4eac8",
+    "light": "indireta",
+    "pets": true,
+    "water": 7,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Folhas em fitas e mudinhas pendentes. Uma opção para casas com gatos e cachorros.",
+    "care": "Prefere luz indireta e regas quando a superfície secar. Evite encharcar. Sol forte pode queimar suas folhas.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chlorophytum-comosum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chlorophytum-comosum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Chlorophytum comosum - Botanischer Garten - Heidelberg, Germany - DSC01199.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Chlorophytum_comosum_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01199.jpg",
+      "author": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "alt": "Clorofito — exemplar de Chlorophytum comosum"
+    }
+  },
+  {
+    "id": "areca",
+    "name": "Palmeira-areca",
+    "scientific": "Dypsis lutescens",
+    "icon": "🌴",
+    "color": "#d6e6d4",
+    "light": "indireta",
+    "pets": true,
+    "water": 6,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior / exterior",
+    "description": "Volume tropical para espaços amplos e bem iluminados. Precisa de proteção do frio intenso.",
+    "care": "Luz indireta abundante. Regue após secagem superficial e permita drenagem. Em regiões frias, prefira interior com boa luz.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chrysalidocarpus-lutescens/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chrysalidocarpus-lutescens/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Dypsis lutescens 21zz.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Dypsis_lutescens_21zz.jpg",
+      "author": "Photo by David J. Stang",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Palmeira-areca — exemplar de Dypsis lutescens"
+    }
+  },
+  {
+    "id": "aloe",
+    "name": "Babosa",
+    "scientific": "Aloe vera",
+    "icon": "🪴",
+    "color": "#e6e8d2",
+    "light": "sol",
+    "pets": false,
+    "water": 14,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "description": "Suculenta que precisa de muita claridade, drenagem e intervalos de secagem.",
+    "care": "Aclimate ao sol e regue somente quando o substrato estiver seco. Proteja de geadas e chuva persistente. Não ofereça a animais nem use como orientação medicinal.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/aloe-vera/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/aloe-vera/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Growing Aloe Vera Plant, May 2023.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Growing_Aloe_Vera_Plant,_May_2023.jpg",
+      "author": "Grace789",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Babosa — exemplar de Aloe vera"
+    }
+  },
+  {
+    "id": "lavanda",
+    "name": "Lavanda",
+    "scientific": "Lavandula angustifolia",
+    "icon": "🪻",
+    "color": "#e6def0",
+    "light": "sol",
+    "pets": false,
+    "water": 7,
+    "regions": ["Sul", "Sudeste"],
+    "place": "Exterior",
+    "description": "Aromática de flores delicadas para locais ensolarados e ventilados. Umidade excessiva dificulta o cultivo.",
+    "care": "Precisa de várias horas de sol, solo muito drenante e boa circulação de ar. Confira a secagem antes de regar. Evite molhar continuamente a folhagem.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/lavandula-angustifolia/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/lavandula-angustifolia/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Lawenda. Lawenda wąskolistna. Lawenda lekarska. (Lavandula angustifolia) 01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Lawenda._Lawenda_w%C4%85skolistna._Lawenda_lekarska._(Lavandula_angustifolia)_01.jpg",
+      "author": "Niepokój Zbigniew",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Lavanda — exemplar de Lavandula angustifolia"
+    }
+  },
+  {
+    "id": "peperomia",
+    "name": "Peperômia",
+    "scientific": "Peperomia obtusifolia",
+    "icon": "🍀",
+    "color": "#d5e5cb",
+    "light": "indireta",
+    "pets": true,
+    "water": 10,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Compacta, de folhas arredondadas e espessas. Vai bem perto de uma janela protegida.",
+    "care": "Regue após secagem parcial do substrato. Evite sol forte, frio intenso e encharcamento. Use vaso com furos.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/peperomia-obtusifolia/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/peperomia-obtusifolia/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Peperomia obtusifolia kz01.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Peperomia_obtusifolia_kz01.jpg",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Peperômia — exemplar de Peperomia obtusifolia"
+    }
+  },
+  {
+    "id": "costela",
+    "name": "Costela-de-adão",
+    "scientific": "Monstera deliciosa",
+    "icon": "🌿",
+    "color": "#bfd3b7",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Folhas grandes e recortadas para ambientes espaçosos com luz filtrada.",
+    "care": "Ofereça tutor e claridade indireta abundante. Regue quando a camada superior secar. Proteja de frio e mantenha fora do alcance de animais.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/monstera-deliciosa/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/monstera-deliciosa/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Monstera deliciosa 27zz.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Monstera_deliciosa_27zz.jpg",
+      "author": "Photo by David J. Stang",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Costela-de-adão — exemplar de Monstera deliciosa"
+    }
+  },
+  {
+    "id": "rosa",
+    "name": "Roseira",
+    "scientific": "Rosa spp.",
+    "icon": "🌹",
+    "color": "#efd9d1",
+    "light": "sol",
+    "pets": true,
+    "water": 4,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior",
+    "description": "Flores para varandas e jardins com sol direto. Escolha uma variedade adaptada ao clima local.",
+    "care": "Precisa de várias horas de sol, ventilação e rega no solo conforme a secagem. Espinhos podem machucar animais, apesar de não ser considerada tóxica.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/rosa/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · ASPCA",
+        "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Rosa spp.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Rosa_spp.jpg",
+      "author": "Deepika Govindaraj",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "alt": "Roseira — exemplar de Rosa spp."
+    }
+  },
+  {
+    "id": "samambaia",
+    "name": "Samambaia-americana",
+    "scientific": "Nephrolepis exaltata",
+    "icon": "🌿",
+    "color": "#c8dfc2",
+    "light": "indireta",
+    "pets": true,
+    "water": 4,
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior",
+    "description": "Folhas pendentes que gostam de luz filtrada, umidade e abrigo do vento.",
+    "care": "Confira o substrato com frequência e mantenha umidade sem encharcar. Evite sol forte. A indicação de segurança refere-se a esta espécie, não a todas as plantas chamadas samambaia.",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/nephrolepis-exaltata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/nephrolepis-exaltata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Nephrolepis exaltata DUBG 2009-06-03.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Nephrolepis_exaltata_DUBG_2009-06-03.JPG",
+      "author": "Dun Holm",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "alt": "Samambaia-americana — exemplar de Nephrolepis exaltata"
+    }
+  },
+  {
+    "id": "anturio",
+    "name": "Antúrio",
+    "scientific": "Anthurium andraeanum",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Folhas brilhantes e espatas coloridas.",
+    "care": "Luz indireta intensa, boa drenagem e rega após secagem superficial. Proteja de frio e sol forte.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/anthurium-andraeanum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/anthurium-andraeanum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Anthurium andraeanum-cultiver-Anna paryercaud-salem-India.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Anthurium_andraeanum-cultiver-Anna_paryercaud-salem-India.JPG",
+      "author": "Yercaud-elango",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Antúrio — exemplar de Anthurium andraeanum"
+    }
+  },
+  {
+    "id": "lirio",
+    "name": "Lírio-da-paz",
+    "scientific": "Spathiphyllum wallisii",
+    "light": "indireta",
+    "pets": false,
+    "water": 5,
+    "description": "Folhagem tropical e espatas brancas para ambientes claros.",
+    "care": "Mantenha umidade sem encharcar e evite sol direto intenso. Não confundir com lírios verdadeiros (Lilium), extremamente perigosos para gatos.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/spathiphyllum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/spathiphyllum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Spathiphyllum wallisii - MHNT.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Spathiphyllum_wallisii_-_MHNT.jpg",
+      "author": "PierreSelim",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "alt": "Lírio-da-paz — exemplar de Spathiphyllum wallisii"
+    }
+  },
+  {
+    "id": "comigo",
+    "name": "Comigo-ninguém-pode",
+    "scientific": "Dieffenbachia seguine",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Folhas grandes e variegadas para locais protegidos.",
+    "care": "Cultive em luz filtrada, sem geada. Confira o solo antes de regar. A seiva causa irritação; use luvas na poda.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/dieffenbachia-seguine/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/dieffenbachia-seguine/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Dieffenbachia seguine - Botanischer Garten Freiburg - DSC06318.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Dieffenbachia_seguine_-_Botanischer_Garten_Freiburg_-_DSC06318.jpg",
+      "author": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "alt": "Comigo-ninguém-pode — exemplar de Dieffenbachia seguine"
+    }
+  },
+  {
+    "id": "filodendro",
+    "name": "Filodendro-coração",
+    "scientific": "Philodendron hederaceum",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Trepadeira de folhas em coração para vasos suspensos ou tutores.",
+    "care": "Ofereça luz indireta, substrato drenante e secagem parcial entre regas. Não confunda com jiboia.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/philodendron-hederaceum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/philodendron-hederaceum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Philodendron hederaceum - Parque Estadual da Serra do Mar - iNaturalist 69206043 (1).jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File:Philodendron_hederaceum_-_Parque_Estadual_da_Serra_do_Mar_-_iNaturalist_69206043_(1).jpeg",
+      "author": "Gilmar R. Ferreira",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Filodendro-coração — exemplar de Philodendron hederaceum"
+    }
+  },
+  {
+    "id": "ficus-elastica",
+    "name": "Ficus-elástica",
+    "scientific": "Ficus elastica",
+    "light": "indireta",
+    "pets": false,
+    "water": 10,
+    "description": "Folhas espessas e brilhantes, com porte que cresce com o tempo.",
+    "care": "Prefere luz abundante e regas após secagem superficial. Evite mudanças bruscas e tenha cuidado com a seiva irritante.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-elastica/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-elastica/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Rubber Plant (Ficus elastica 'Robusta') 2.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Rubber_Plant_(Ficus_elastica_%27Robusta%27)_2.jpg",
+      "author": "Mokkie",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Ficus-elástica — exemplar de Ficus elastica"
+    }
+  },
+  {
+    "id": "ficus-benjamina",
+    "name": "Ficus-benjamim",
+    "scientific": "Ficus benjamina",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Árvore ornamental de ramos delicados, que precisa de espaço.",
+    "care": "Luz intensa e ambiente estável; mudanças de local podem causar queda de folhas. Evite encharcamento e contato com a seiva.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-benjamina/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-benjamina/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Ficus benjamina - Ботаничка градина Скопје (3).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ficus_benjamina_-_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0_%D0%A1%D0%BA%D0%BE%D0%BF%D1%98%D0%B5_(3).jpg",
+      "author": "Dandarmkd",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Ficus-benjamim — exemplar de Ficus benjamina"
+    }
+  },
+  {
+    "id": "ficus-lyrata",
+    "name": "Ficus-lira",
+    "scientific": "Ficus lyrata",
+    "light": "indireta",
+    "pets": false,
+    "water": 10,
+    "description": "Folhas amplas em forma de lira para espaços iluminados.",
+    "care": "Luz indireta muito abundante, sem correntes frias. Confira a secagem da camada superior antes de regar.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-lyrata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/ficus-lyrata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Ficus lyrata chippendale1.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ficus_lyrata_chippendale1.jpg",
+      "author": "Casliber",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Ficus-lira — exemplar de Ficus lyrata"
+    }
+  },
+  {
+    "id": "cheflera",
+    "name": "Cheflera",
+    "scientific": "Schefflera arboricola",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Arbusto de folhas que lembram pequenos guarda-chuvas.",
+    "care": "Prefere boa claridade e rega após secagem parcial. Pode crescer bastante; a poda ajuda a controlar o porte.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/heptapleurum-arboricola/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/heptapleurum-arboricola/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Schefflera arboricola, vrugte, c, Pretoria.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Schefflera_arboricola,_vrugte,_c,_Pretoria.jpg",
+      "author": "JMK",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Cheflera — exemplar de Schefflera arboricola"
+    }
+  },
+  {
+    "id": "aglaonema",
+    "name": "Aglaonema",
+    "scientific": "Aglaonema commutatum",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Folhagem tropical de desenhos prateados e verdes.",
+    "care": "Luz indireta e calor, sem sol forte ou frio intenso. Mantenha o solo drenante e deixe a superfície secar entre regas.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/aglaonema/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/aglaonema/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Agalaonema commulatum-1-sunny brook-yercaud-salem-India.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Agalaonema_commulatum-1-sunny_brook-yercaud-salem-India.JPG",
+      "author": "Yercaud-elango",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Aglaonema — exemplar de Aglaonema commutatum"
+    }
+  },
+  {
+    "id": "singonio",
+    "name": "Singônio",
+    "scientific": "Syngonium podophyllum",
+    "light": "indireta",
+    "pets": false,
+    "water": 7,
+    "description": "Folhas em formato de seta que mudam conforme a planta amadurece.",
+    "care": "Luz filtrada, suporte para trepar e substrato levemente úmido, sem água acumulada.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/syngonium-podophyllum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/syngonium-podophyllum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Chapiso (Syngonium podophyllum) em São Roque.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Chapiso_(Syngonium_podophyllum)_em_S%C3%A3o_Roque.jpg",
+      "author": "Carlo Brescia",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Singônio — exemplar de Syngonium podophyllum"
+    }
+  },
+  {
+    "id": "croton",
+    "name": "Cróton",
+    "scientific": "Codiaeum variegatum",
+    "light": "sol",
+    "pets": null,
+    "water": 5,
+    "description": "Arbusto de folhagem colorida para ambientes quentes e iluminados.",
+    "care": "Boa luminosidade e sol com aclimatação. Evite frio e mudanças abruptas; use luvas ao podar por causa da seiva.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/codiaeum-variegatum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:2010 07 12160 5308 Chenggong Township.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:2010_07_12160_5308_Chenggong_Township.JPG",
+      "author": "Lord Koxinga",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Cróton — exemplar de Codiaeum variegatum"
+    }
+  },
+  {
+    "id": "kalanchoe",
+    "name": "Flor-da-fortuna",
+    "scientific": "Kalanchoe blossfeldiana",
+    "light": "sol",
+    "pets": false,
+    "water": 10,
+    "description": "Suculenta de flores pequenas e coloridas, comum em vasos.",
+    "care": "Luz abundante e algumas horas de sol suave com aclimatação. Deixe secar entre regas, evitando molhar continuamente as folhas.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/kalanchoe-blossfeldiana/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/kalanchoe-blossfeldiana/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:(MHNT) Kalanchoe blossfeldiana - inflorescence.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Kalanchoe_blossfeldiana_-_inflorescence.jpg",
+      "author": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Flor-da-fortuna — exemplar de Kalanchoe blossfeldiana"
+    }
+  },
+  {
+    "id": "jade",
+    "name": "Planta-jade",
+    "scientific": "Crassula ovata",
+    "light": "sol",
+    "pets": false,
+    "water": 14,
+    "description": "Suculenta de folhas espessas e crescimento arbustivo.",
+    "care": "Precisa de muita claridade, sol com aclimatação e solo muito drenante. Espere secar antes de regar.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/crassula-ovata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/crassula-ovata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:(MHNT) Crassula ovata - Serres du Museum de Toulouse.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Crassula_ovata_-_Serres_du_Museum_de_Toulouse.jpg",
+      "author": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Planta-jade — exemplar de Crassula ovata"
+    }
+  },
+  {
+    "id": "coroa",
+    "name": "Coroa-de-cristo",
+    "scientific": "Euphorbia milii",
+    "light": "sol",
+    "pets": false,
+    "water": 10,
+    "description": "Arbusto florido com espinhos e seiva irritante.",
+    "care": "Cultive ao sol, em substrato drenante. Use luvas e proteção ao podar; evite contato da seiva com olhos e pele.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/euphorbia-milii/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/euphorbia-milii/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:A yellow Euphorbia Milii, Also known as Crown of thorns.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:A_yellow_Euphorbia_Milii,_Also_known_as_Crown_of_thorns.jpg",
+      "author": "Hasnat Abdullah",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Coroa-de-cristo — exemplar de Euphorbia milii"
+    }
+  },
+  {
+    "id": "cica",
+    "name": "Cica",
+    "scientific": "Cycas revoluta",
+    "light": "sol",
+    "pets": false,
+    "water": 10,
+    "description": "Planta ornamental de crescimento lento, parecida com uma palmeira.",
+    "care": "Prefere claridade intensa, sol e drenagem. Altamente tóxica para animais, inclusive sementes; não é uma escolha adequada para casas com pets.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/cycas-revoluta/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/cycas-revoluta/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Botanical garden in Ufa (March 2025) -0 11.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Botanical_garden_in_Ufa_(March_2025)_-0_11.jpg",
+      "author": "Vyacheslav Bukharov",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Cica — exemplar de Cycas revoluta"
+    }
+  },
+  {
+    "id": "violeta",
+    "name": "Violeta-africana",
+    "scientific": "Saintpaulia ionantha",
+    "light": "indireta",
+    "pets": true,
+    "water": 5,
+    "description": "Planta compacta de folhas aveludadas e flores delicadas.",
+    "care": "Luz indireta abundante e umidade moderada. Evite sol forte, água fria nas folhas e substrato encharcado.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/streptocarpus-ionanthus/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/streptocarpus-ionanthus/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:African Violet Blooms.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:African_Violet_Blooms.jpg",
+      "author": "Sluglife6826",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "alt": "Violeta-africana — exemplar de Saintpaulia ionantha"
+    }
+  },
+  {
+    "id": "flor-maio",
+    "name": "Flor-de-maio",
+    "scientific": "Schlumbergera truncata",
+    "light": "indireta",
+    "pets": true,
+    "water": 7,
+    "description": "Cacto de floresta com ramos pendentes e flores marcantes.",
+    "care": "Prefere claridade filtrada e solo drenante. Tolera menos seca do que cactos de deserto; confira o substrato.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/schlumbergera-truncata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/schlumbergera-truncata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Cactus de Navidad, Zygocactus truncatus.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Cactus_de_Navidad,_Zygocactus_truncatus.jpg",
+      "author": "Carlos SGP",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "alt": "Flor-de-maio — exemplar de Schlumbergera truncata"
+    }
+  },
+  {
+    "id": "orquidea",
+    "name": "Orquídea-borboleta",
+    "scientific": "Phalaenopsis amabilis",
+    "light": "indireta",
+    "pets": true,
+    "water": 7,
+    "description": "Orquídea de flores duradouras para ambientes claros e protegidos.",
+    "care": "Use substrato próprio e vaso com drenagem. Regue conforme a secagem e evite água parada na coroa. Não plante em terra compacta.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/phalaenopsis/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/phalaenopsis/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Phalaenopsis amabilis Orchi 004.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Phalaenopsis_amabilis_Orchi_004.jpg",
+      "author": "Orchi",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "alt": "Orquídea-borboleta — exemplar de Phalaenopsis amabilis"
+    }
+  },
+  {
+    "id": "chamaedorea",
+    "name": "Palmeira-de-salão",
+    "scientific": "Chamaedorea elegans",
+    "light": "indireta",
+    "pets": true,
+    "water": 7,
+    "description": "Palmeira de porte menor, cultivada em vasos dentro de casa.",
+    "care": "Prefere luz filtrada, sem sol forte. Deixe a superfície secar entre regas e proteja do frio e do vento seco.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chamaedorea-elegans/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/chamaedorea-elegans/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:9.cham.elegans (14616907548).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:9.cham.elegans_(14616907548).jpg",
+      "author": "Dick Culbert from Gibsons, B.C., Canada",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "alt": "Palmeira-de-salão — exemplar de Chamaedorea elegans"
+    }
+  },
+  {
+    "id": "pata-elefante",
+    "name": "Pata-de-elefante",
+    "scientific": "Beaucarnea recurvata",
+    "light": "sol",
+    "pets": true,
+    "water": 15,
+    "description": "Tronco engrossado e folhas longas que armazenam uma silhueta singular.",
+    "care": "Muita luz e sol com aclimatação. O tronco armazena água; permita secagem entre regas e evite encharcar.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/beaucarnea-recurvata/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/beaucarnea-recurvata/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Beaucarnea recurvata, Carretera Aldama-Barra El Tordo, Tamaulipas, Mexico 1.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Beaucarnea_recurvata,_Carretera_Aldama-Barra_El_Tordo,_Tamaulipas,_Mexico_1.jpg",
+      "author": "claudiocantu17",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "alt": "Pata-de-elefante — exemplar de Beaucarnea recurvata"
+    }
+  },
+  {
+    "id": "fitonia",
+    "name": "Fitônia",
+    "scientific": "Fittonia albivenis",
+    "light": "indireta",
+    "pets": true,
+    "water": 4,
+    "description": "Pequenas folhas com nervuras contrastantes, para luz suave.",
+    "care": "Luz filtrada e umidade estável, sem deixar o solo encharcado. Não gosta de ar muito seco ou sol forte.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/fittonia-albivenis/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/fittonia-albivenis/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Ab plant 586.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ab_plant_586.jpg",
+      "author": "Andrey Butko",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Fitônia — exemplar de Fittonia albivenis"
+    }
+  },
+  {
+    "id": "pilea",
+    "name": "Pilea-chinesa",
+    "scientific": "Pilea peperomioides",
+    "light": "indireta",
+    "pets": null,
+    "water": 7,
+    "description": "Folhas arredondadas que lembram moedas, com porte compacto.",
+    "care": "Luz indireta intensa e solo drenante. Gire o vaso para crescimento uniforme e confira a secagem superficial. Não há classificação de toxicidade confirmada nesta ficha.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/pilea-peperomioides/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:(MHNT) Pilea peperomioides Foliage.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Pilea_peperomioides_Foliage.jpg",
+      "author": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Pilea-chinesa — exemplar de Pilea peperomioides"
+    }
+  },
+  {
+    "id": "calateia",
+    "name": "Calateia-pavão",
+    "scientific": "Goeppertia makoyana",
+    "light": "indireta",
+    "pets": true,
+    "water": 5,
+    "description": "Folhas desenhadas com padrões que lembram penas de pavão.",
+    "care": "Luz filtrada, boa umidade do ar e proteção do frio. Evite ressecamento completo e encharcamento.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/goeppertia-makoyana/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/goeppertia-makoyana/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:20210605 Hortus botanicus Leiden - Calathea makoyana (leave).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:20210605_Hortus_botanicus_Leiden_-_Calathea_makoyana_(leave).jpg",
+      "author": "Rudolphous",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Calateia-pavão — exemplar de Goeppertia makoyana"
+    }
+  },
+  {
+    "id": "asplenio",
+    "name": "Asplênio",
+    "scientific": "Asplenium nidus",
+    "light": "indireta",
+    "pets": null,
+    "water": 6,
+    "description": "Samambaia de folhas inteiras, dispostas em roseta.",
+    "care": "Luz indireta e umidade, sem sol forte. Regue o substrato sem deixar água acumulada no centro da roseta.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/asplenium-nidus/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:(Asplenium nidus on Kauai Island, United States) - DPLA - 9df1d4d8c60f36bc61daaa64bed3138d.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:(Asplenium_nidus_on_Kauai_Island,_United_States)_-_DPLA_-_9df1d4d8c60f36bc61daaa64bed3138d.jpg",
+      "author": "Carlquist, Sherwin John, 1930-2021",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "alt": "Asplênio — exemplar de Asplenium nidus"
+    }
+  },
+  {
+    "id": "avenca",
+    "name": "Avenca",
+    "scientific": "Adiantum raddianum",
+    "light": "indireta",
+    "pets": null,
+    "water": 3,
+    "description": "Folhas finas e delicadas para um ambiente úmido e protegido.",
+    "care": "Mantenha umidade estável no substrato e no ar. Proteja de vento, sol forte e ressecamento completo.",
+    "icon": "🌿",
+    "color": "#dce7d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Interior com luz natural",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/adiantum-raddianum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Adiantum raddianum - Botanischer Garten München-Nymphenburg - DSC08177.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Adiantum_raddianum_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08177.JPG",
+      "author": "Daderot",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "alt": "Avenca — exemplar de Adiantum raddianum"
+    }
+  },
+  {
+    "id": "echeveria",
+    "name": "Rosa-de-pedra",
+    "scientific": "Echeveria elegans",
+    "light": "sol",
+    "pets": true,
+    "water": 14,
+    "description": "Suculenta em roseta, cultivada em pequenos vasos e composições.",
+    "care": "Muita luminosidade e sol com aclimatação. Regue no substrato quando seco e evite água parada no centro.",
+    "icon": "🌿",
+    "color": "#e5eadc",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/echeveria-elegans/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/echeveria-elegans/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:003 2017 08 05 Rotationssymmetrie.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:003_2017_08_05_Rotationssymmetrie.jpg",
+      "author": "Friedrich Haag",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Rosa-de-pedra — exemplar de Echeveria elegans"
+    }
+  },
+  {
+    "id": "rabo-burro",
+    "name": "Rabo-de-burro",
+    "scientific": "Sedum morganianum",
+    "light": "sol",
+    "pets": true,
+    "water": 14,
+    "description": "Suculenta pendente de folhas carnudas e delicadas ao toque.",
+    "care": "Ofereça luz intensa e sol suave, com boa drenagem. Deixe o substrato secar e manuseie pouco, pois as folhas se soltam.",
+    "icon": "🌿",
+    "color": "#d2e1c7",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/sedum-morganianum/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/sedum-morganianum/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:Burrito (Sedum morganianum), jardín botánico de Tallinn, Estonia, 2012-08-13, DD 02.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Burrito_(Sedum_morganianum),_jard%C3%ADn_bot%C3%A1nico_de_Tallinn,_Estonia,_2012-08-13,_DD_02.JPG",
+      "author": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "alt": "Rabo-de-burro — exemplar de Sedum morganianum"
+    }
+  },
+  {
+    "id": "alecrim",
+    "name": "Alecrim",
+    "scientific": "Salvia rosmarinus",
+    "light": "sol",
+    "pets": true,
+    "water": 7,
+    "description": "Erva aromática para varandas e jardins ensolarados.",
+    "care": "Precisa de sol, ventilação e solo drenante. Evite umidade persistente. A indicação de toxicidade não se aplica a óleos essenciais concentrados.",
+    "icon": "🌿",
+    "color": "#e8e4d1",
+    "regions": ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"],
+    "place": "Exterior iluminado",
+    "sources": [
+      {
+        "label": "Cultivo e luminosidade · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/salvia-rosmarinus/",
+        "checkedAt": "2026-10-21"
+      },
+      {
+        "label": "Toxicidade a cães e gatos · NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/salvia-rosmarinus/",
+        "checkedAt": "2026-10-21"
+      }
+    ],
+    "image": {
+      "title": "File:331.4.24madaya.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:331.4.24madaya.jpg",
+      "author": "Mabdmtmm",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Alecrim — exemplar de Salvia rosmarinus"
+    }
+  }
+]

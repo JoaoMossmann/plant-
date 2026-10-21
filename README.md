@@ -1,74 +1,43 @@
-# Jardim pessoal (nome provisório)
+# Meu jardim
 
-Uma primeira versão gratuita e sem backend para cuidar das plantas. React + Vite, responsiva e em português.
+**Um espaço para cultivar plantas, conhecimento e uma rotina de cuidado.**
 
-## O que já funciona
+Meu jardim nasceu de uma ideia simples: ajudar alguém querido a acompanhar as plantas de casa. A proposta é transformar o cuidado diário em uma experiência acessível, visual e acolhedora — e evoluir para uma plataforma onde cada pessoa tenha seu próprio jardim digital.
 
-- Cadastro, edição e exclusão de plantas com foto, apelido, espécie, data de aquisição e observações.
-- Fotos da galeria ou câmera, conforme as opções do dispositivo; redimensionamento local.
-- Registro de regas e cuidados, diário e lembretes de conferência do solo ao abrir o site.
-- Catálogo editorial de 12 espécies, filtros por região de cultivo, luz e segurança para cães e gatos.
-- Sugestões para ambientes com base em respostas sobre luz, região e animais. A foto opcional é apenas uma referência visual, não é analisada.
-- Persistência local em IndexedDB e exportação/importação de backup JSON. Importar adiciona plantas novas e preserva registros com IDs já existentes.
+![Exploração de plantas com fotografias reais e filtros de cultivo](docs/images/catalogo.png)
 
-## Limitações desta versão
+Fotografias do catálogo: [autores e licenças](src/assets/plants/CREDITS.md).
 
-Não há login, sincronização entre dispositivos, identificação por IA, catálogo mundial completo, notificações com o site fechado ou análise automática de ambientes. Fotos e cadastros ficam apenas no navegador usado (não no GitHub). Limpar os dados do navegador pode apagar o jardim. Exporte backups regularmente. Compartilhar a URL não compartilha o jardim; cada navegador começa vazio. A foto de ambiente é temporária e não entra no backup. Não há analytics nem envio de fotos a terceiros.
+## Cultivar com mais confiança
 
-Os intervalos de rega são pontos de partida para conferir o solo. Clima, vaso, substrato e estação mudam as necessidades. O filtro regional indica possibilidades de cultivo com proteção adequada, não distribuição nativa nem garantia de adaptação. Não tóxica não significa comestível. Confirme a espécie e procure um veterinário em caso de ingestão. Fonte inicial de toxicidade: https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants . Recomendações de cultivo precisam de revisão horticultural antes de um lançamento amplo.
+Reúna suas plantas em uma coleção com fotos, nomes e histórias. Registre os cuidados, acompanhe o tempo que cada planta está com você e encontre orientações para observar suas necessidades.
 
-## Rodar localmente / VS Code
+Explore espécies, descubra suas preferências de luz e consulte informações sobre toxicidade para cães e gatos. Para escolher uma nova companheira, descreva o ambiente da casa e encontre opções compatíveis com ele.
 
-Instale Node.js 24 LTS. Abra esta pasta no VS Code e execute no terminal:
+## Como usar
 
-```sh
-npm ci
-npm run dev
-```
+1. Abra o site pelo endereço disponível na seção **About** deste repositório ou no ambiente **github-pages**.
+2. Entre em **Minhas plantas** e adicione sua primeira planta, com foto e data de aquisição.
+3. Registre as regas e outros cuidados para construir seu diário.
+4. Visite **Explorar plantas** para conhecer espécies e **Meu ambiente** para encontrar combinações com a sua casa.
+5. Use **Exportar backup** para guardar uma cópia do jardim.
 
-O terminal informa o endereço local. Para validar:
+Quando a conexão com o serviço de contas estiver ativada, **Entrar / criar conta** permite cadastrar e-mail e senha, confirmar o endereço e acessar o jardim em outros aparelhos. O modo local continua disponível para experimentar sem cadastro; as plantas locais podem ser copiadas para a conta por uma importação manual.
 
-```sh
-npm test
-npm run build
-npm run preview
-```
+## Uma experiência que cresce
 
-Não são necessárias chaves ou variáveis de ambiente. `dist/` é o resultado publicável. Não envie backups ou fotos pessoais ao Git.
+A visão do projeto inclui identificação de espécies por foto, recomendações para ambientes, lembretes personalizados e um catálogo cada vez mais completo de plantas presentes nas casas brasileiras. Essas frentes fazem parte da evolução do produto e serão lançadas após validação de qualidade, privacidade e custos.
 
-## Publicar gratuitamente com GitHub Pages
+O visual combina tons verdes suaves, elementos botânicos e uma interface pensada para funcionar no celular e no computador. O nome é provisório; a prioridade é construir uma experiência útil e confiável.
 
-1. Envie o projeto à branch `main` deste repositório.
-2. No GitHub, abra **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-3. Abra **Actions → Publicar site no GitHub Pages → Run workflow → main** (ou envie um novo commit).
-4. Aguarde os jobs `build` e `deploy` concluírem. O endereço publicado aparece em **Settings → Pages** e no ambiente `github-pages`.
-5. Abra a URL no celular e no computador. Cadastre uma planta e faça um backup para validar seu uso real.
+## Cuidado com as plantas e com seus dados
 
-A configuração `base: './'` permite hospedar os arquivos sob o caminho do repositório. GitHub Pages oferece hospedagem gratuita para repositórios públicos; repositórios privados dependem do plano. A URL será informada pelo GitHub depois da publicação.
+O jardim local pertence ao navegador usado. Na experiência com conta, os dados ficam vinculados ao usuário e protegidos por regras de acesso no banco e no armazenamento de fotos. Dados pessoais e fotos dos usuários não fazem parte do repositório público.
 
-Alternativas: Cloudflare Pages (comando de build `npm run build`, pasta `dist`) e Vercel (preset Vite). São opções para avaliar hospedagem com o repositório privado; disponibilidade, termos, limites e permissões de integração dependem do plano vigente. Não é necessário comprar domínio: use o subdomínio oferecido pela hospedagem.
+As orientações de cultivo ajudam a observar a planta: a necessidade de água varia com o vaso, o substrato, o clima e a estação. A identificação correta da espécie também importa para a segurança de animais. Consulte as fontes de cada ficha e procure um veterinário em caso de ingestão.
 
-## Privacidade e repositório público
+## Por dentro do projeto
 
-O código-fonte, o README, os workflows e o histórico de commits ficam visíveis quando o repositório é público. O `.gitignore` evita a inclusão acidental de novos arquivos locais; ele não oculta arquivos já versionados nem remove versões anteriores. Nomes e e-mails de autores de commits também fazem parte do histórico. Para futuros commits, use o endereço `noreply` fornecido em **GitHub → Settings → Emails** se desejar preservar seu e-mail pessoal.
+Construído com **React**, **Vite** e **Supabase**, com publicação da interface pelo **GitHub Pages**. Autenticação e armazenamento são serviços separados da hospedagem da interface, o que permite adotar um domínio próprio no futuro.
 
-Os dados do jardim ficam no IndexedDB do navegador, separados do código do site. Eles não são publicados no repositório nem sincronizados com outros visitantes. O aplicativo não exige segredos e não envia fotos ou cadastros a um servidor. O armazenamento local não tem criptografia própria ou login: quem acessa o mesmo perfil do navegador pode acessar o jardim.
-
-- Guarde exportações pessoais nas pastas locais `backups/`, `private/` ou `uploads/`, ignoradas pelo Git. Os arquivos exportados automaticamente com o padrão `meu-jardim-*.json` também são ignorados.
-- Não adicione fotos pessoais, backups, tokens, senhas ou credenciais ao código, ao README, aos commits ou aos logs de Actions. Verifique `git status` antes de cada commit.
-- Arquivos `.env` e variantes são ignorados. Somente `.env.example`, com exemplos sem valores secretos, pode ser versionado.
-- Variáveis `VITE_*` usadas no frontend são incorporadas ao JavaScript público. Elas não devem conter segredos, mesmo quando vêm de GitHub Actions Secrets.
-- Uma futura chave de identificação de plantas deve ficar em uma função de servidor, com autenticação, limites e validação de uploads. GitHub Pages sozinho não executa esse backend.
-- Caso uma credencial seja publicada, revogue-a ou troque-a primeiro. Apagar o arquivo em um novo commit não elimina a exposição no histórico.
-- Publicar este site permite que outras pessoas abram a aplicação. Um endereço pouco divulgado não funciona como controle de acesso.
-
-## Próximas etapas sugeridas
-
-1. Testar com as plantas reais e ajustar os intervalos individualmente.
-2. Login + banco e armazenamento de fotos (por exemplo Supabase) para sincronizar aparelhos. Configurar autenticação, políticas por usuário e limites de uploads antes de armazenar dados.
-3. Identificação botânica por foto com API especializada (por exemplo Pl@ntNet), em uma função de servidor; verificar elegibilidade, cota e termos atuais. Nunca colocar uma chave secreta no frontend. Mostrar candidatos e confiança e pedir confirmação da espécie.
-4. Recomendações de ambientes com foto e perguntas sobre horas de sol, orientação da janela e clima. Uma foto isolada não mede luminosidade ao longo do dia.
-5. Notificações e lembretes configuráveis, exigindo permissão do usuário e infraestrutura para envio com o site fechado.
-6. Expandir catálogo com fontes botânicas, licenças das imagens e revisão profissional de toxicidade e cultivo.
-
-Não há garantia de IA ilimitada gratuita. A versão local pode operar sem custos de backend; sincronização, armazenamento e análise de imagens ficam sujeitos às cotas dos provedores.
+Para desenvolvimento e configuração, consulte a [documentação técnica](docs/DEVELOPMENT.md), a [ativação de contas](docs/SUPABASE.md), a [política editorial do catálogo](docs/CATALOG.md) e os [cuidados de segurança](docs/SECURITY.md).

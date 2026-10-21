@@ -1,16 +1,17 @@
-// Catálogo editorial inicial. Região indica uso em cultivo, não distribuição nativa.
-export const catalog = [
- {id:'jiboia',name:'Jiboia',scientific:'Epipremnum aureum',icon:'🌿',color:'#dbe8bc',light:'indireta',pets:false,water:7,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Trepadeira de folhas em coração. Gosta de luz indireta e substrato que seque parcialmente entre regas.',care:'Confira os primeiros centímetros do substrato. Regue quando estiverem secos, deixando o excesso escorrer. Proteja do frio e do sol direto forte.'},
- {id:'maranta',name:'Maranta',scientific:'Maranta leuconeura',icon:'🍃',color:'#d1dfc7',light:'indireta',pets:true,water:5,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Folhagem desenhada para um canto com claridade suave. Prefere umidade e temperaturas amenas.',care:'Mantenha o substrato levemente úmido, sem encharcar. Evite sol direto e correntes frias. No Sul, cultive protegida durante o inverno.'},
- {id:'zamioculca',name:'Zamioculca',scientific:'Zamioculcas zamiifolia',icon:'🌱',color:'#dce3ce',light:'baixa',pets:false,water:15,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Folhas brilhantes e crescimento lento. Tolera pouca luz, mas se desenvolve melhor com claridade indireta.',care:'Espere o substrato secar antes de regar. Use vaso com drenagem. Pouca luz não significa ausência de luz; nenhum canto totalmente escuro serve.'},
- {id:'espada',name:'Espada-de-são-jorge',scientific:'Dracaena trifasciata',icon:'🌾',color:'#e1e5c3',light:'baixa',pets:false,water:15,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior / exterior',description:'Folhas verticais e resistentes. Tolera ambientes menos iluminados e períodos de seca.',care:'Deixe o substrato secar entre regas e evite água acumulada no pratinho. Acostume gradualmente ao sol. Proteja de geada.'},
- {id:'clorofito',name:'Clorofito',scientific:'Chlorophytum comosum',icon:'🌿',color:'#e4eac8',light:'indireta',pets:true,water:7,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Folhas em fitas e mudinhas pendentes. Uma opção para casas com gatos e cachorros.',care:'Prefere luz indireta e regas quando a superfície secar. Evite encharcar. Sol forte pode queimar suas folhas.'},
- {id:'areca',name:'Palmeira-areca',scientific:'Dypsis lutescens',icon:'🌴',color:'#d6e6d4',light:'indireta',pets:true,water:6,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior / exterior',description:'Volume tropical para espaços amplos e bem iluminados. Precisa de proteção do frio intenso.',care:'Luz indireta abundante. Regue após secagem superficial e permita drenagem. Em regiões frias, prefira interior com boa luz.'},
- {id:'aloe',name:'Babosa',scientific:'Aloe vera',icon:'🪴',color:'#e6e8d2',light:'sol',pets:false,water:14,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Exterior iluminado',description:'Suculenta que precisa de muita claridade, drenagem e intervalos de secagem.',care:'Aclimate ao sol e regue somente quando o substrato estiver seco. Proteja de geadas e chuva persistente. Não ofereça a animais nem use como orientação medicinal.'},
- {id:'lavanda',name:'Lavanda',scientific:'Lavandula angustifolia',icon:'🪻',color:'#e6def0',light:'sol',pets:false,water:7,regions:['Sul','Sudeste'],place:'Exterior',description:'Aromática de flores delicadas para locais ensolarados e ventilados. Umidade excessiva dificulta o cultivo.',care:'Precisa de várias horas de sol, solo muito drenante e boa circulação de ar. Confira a secagem antes de regar. Evite molhar continuamente a folhagem.'},
- {id:'peperomia',name:'Peperômia',scientific:'Peperomia obtusifolia',icon:'🍀',color:'#d5e5cb',light:'indireta',pets:true,water:10,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Compacta, de folhas arredondadas e espessas. Vai bem perto de uma janela protegida.',care:'Regue após secagem parcial do substrato. Evite sol forte, frio intenso e encharcamento. Use vaso com furos.'},
- {id:'costela',name:'Costela-de-adão',scientific:'Monstera deliciosa',icon:'🌿',color:'#bfd3b7',light:'indireta',pets:false,water:7,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Folhas grandes e recortadas para ambientes espaçosos com luz filtrada.',care:'Ofereça tutor e claridade indireta abundante. Regue quando a camada superior secar. Proteja de frio e mantenha fora do alcance de animais.'},
- {id:'rosa',name:'Roseira',scientific:'Rosa spp.',icon:'🌹',color:'#efd9d1',light:'sol',pets:true,water:4,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Exterior',description:'Flores para varandas e jardins com sol direto. Escolha uma variedade adaptada ao clima local.',care:'Precisa de várias horas de sol, ventilação e rega no solo conforme a secagem. Espinhos podem machucar animais, apesar de não ser considerada tóxica.'},
- {id:'samambaia',name:'Samambaia-americana',scientific:'Nephrolepis exaltata',icon:'🌿',color:'#c8dfc2',light:'indireta',pets:true,water:4,regions:['Sul','Sudeste','Centro-Oeste','Nordeste','Norte'],place:'Interior',description:'Folhas pendentes que gostam de luz filtrada, umidade e abrigo do vento.',care:'Confira o substrato com frequência e mantenha umidade sem encharcar. Evite sol forte. A indicação de segurança refere-se a esta espécie, não a todas as plantas chamadas samambaia.'}
-];
-export const lightNames = {baixa:'Tolera pouca luz',indireta:'Luz indireta',sol:'Sol direto'};
+import data from "./catalog-data.json" with { type: "json" };
+export const catalog = data.map((p) => ({
+  ...p,
+  photo: new URL(`./assets/plants/${p.id}.jpg`, import.meta.url).href,
+}));
+export const lightNames = {
+  baixa: "Tolera pouca luz",
+  indireta: "Luz indireta",
+  sol: "Sol direto",
+};
+export function toxicityLabel(plant) {
+  return plant.pets === true
+    ? "Não tóxica*"
+    : plant.pets === false
+      ? "Tóxica a pets"
+      : "Toxicidade não confirmada";
+}

@@ -24,3 +24,7 @@ meu-jardim-*.json
 .DS_Store
 Thumbs.db
 *.local
+
+# Resultados de testes de navegador (podem conter dados de sessão)
+/test-results/
+/playwright-report/
