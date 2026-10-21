@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {dueDays,validateBackup,recommend,dayKey} from '../src/domain.js';
+import {catalog} from '../src/catalog.js';
+const plant={id:'one',name:'Maranta',species:'Maranta leuconeura',acquired:'2026-10-01',lastWatered:'2026-10-20',interval:5,history:[]};
+test('reminder uses last watering and crosses month/year boundaries',()=>{assert.equal(dueDays(plant,new Date('2026-10-21T12:00:00')),4);assert.equal(dueDays({...plant,lastWatered:'2026-12-30'},new Date('2027-01-05T12:00:00')),-1);});
+test('without watering, reminder starts with acquisition',()=>{assert.equal(dueDays({...plant,lastWatered:null},new Date('2026-10-06T12:00:00')),0);});
+test('pet-safe low light room never recommends toxic species',()=>{const result=recommend(catalog,{light:'baixa',pets:true,region:'Sul'});assert.equal(result.length,0);});
+test('indirect light recommendations match all filters',()=>{const result=recommend(catalog,{light:'indireta',pets:true,region:'Sul'});assert.ok(result.length>0);assert.ok(result.every(p=>p.pets&&p.light!=='sol'&&p.regions.includes('Sul')));});
+test('no natural light gives no recommendations',()=>{assert.equal(recommend(catalog,{light:'nenhuma',pets:false,region:'Sul'}).length,0);});
+test('valid backup roundtrips, malformed and duplicate records rejected',()=>{assert.deepEqual(validateBackup(JSON.parse(JSON.stringify({version:1,plants:[plant]}))),[plant]);for(const data of [{},{version:1,plants:[{...plant,interval:0}]},{version:1,plants:[plant,plant]},{version:1,plants:[{...plant,photo:'https://malicious.example/a'}]},{version:1,plants:[{...plant,history:[null]}]}])assert.throws(()=>validateBackup(data));});
+test('catalog has unique identities and required care information',()=>{assert.equal(new Set(catalog.map(p=>p.id)).size,catalog.length);assert.ok(catalog.every(p=>p.care&&p.scientific&&p.water>0&&p.regions.length));});
