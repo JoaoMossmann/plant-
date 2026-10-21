@@ -19,8 +19,8 @@ As fotografias são exemplos de exemplares das plantas, obtidos do Wikimedia Com
 ## Zamioculca — Zamioculcas zamiifolia
 
 - Arquivo: `zamioculca.jpg`
-- Fotografia: [File:Zamioculcas zamiifolia 7zz.jpg](https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_7zz.jpg)
-- Autor: Photo by David J. Stang
+- Fotografia: [File:Zamioculcas zamiifolia Chameleon 1.jpg](https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_Chameleon_1.jpg)
+- Autor: Dbwolfe
 - Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
 
 ## Espada-de-são-jorge — Dracaena trifasciata
@@ -131,16 +131,16 @@ As fotografias são exemplos de exemplares das plantas, obtidos do Wikimedia Com
 ## Ficus-lira — Ficus lyrata
 
 - Arquivo: `ficus-lyrata.jpg`
-- Fotografia: [File:Ficus lyrata chippendale1.jpg](https://commons.wikimedia.org/wiki/File:Ficus_lyrata_chippendale1.jpg)
-- Autor: Casliber
-- Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- Fotografia: [File:Ficus lyrata indoor house second floor - July 2026.jpg](https://commons.wikimedia.org/wiki/File:Ficus_lyrata_indoor_house_second_floor_-_July_2026.jpg)
+- Autor: Ranch9613
+- Licença: [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 
 ## Cheflera — Schefflera arboricola
 
 - Arquivo: `cheflera.jpg`
-- Fotografia: [File:Schefflera arboricola, vrugte, c, Pretoria.jpg](https://commons.wikimedia.org/wiki/File:Schefflera_arboricola,_vrugte,_c,_Pretoria.jpg)
-- Autor: JMK
-- Licença: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- Fotografia: [File:Dwarf umbrella tree (Schefflera arboricola).jpg](https://commons.wikimedia.org/wiki/File:Dwarf_umbrella_tree_(Schefflera_arboricola).jpg)
+- Autor: Dandy1022
+- Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
 
 ## Aglaonema — Aglaonema commutatum
 
@@ -257,9 +257,9 @@ As fotografias são exemplos de exemplares das plantas, obtidos do Wikimedia Com
 ## Avenca — Adiantum raddianum
 
 - Arquivo: `avenca.jpg`
-- Fotografia: [File:Adiantum raddianum - Botanischer Garten München-Nymphenburg - DSC08177.JPG](https://commons.wikimedia.org/wiki/File:Adiantum_raddianum_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08177.JPG)
-- Autor: Daderot
-- Licença: [Public domain](https://commons.wikimedia.org/wiki/File:Adiantum_raddianum_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08177.JPG)
+- Fotografia: [File:Frauenhaarfarn (Adiantum raddianum 'Fragrans') (20524424239).jpg](https://commons.wikimedia.org/wiki/File:Frauenhaarfarn_(Adiantum_raddianum_%27Fragrans%27)_(20524424239).jpg)
+- Autor: Maja Dumat from Deutschland (Germany)
+- Licença: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
 
 ## Rosa-de-pedra — Echeveria elegans
 
@@ -278,6 +278,6 @@ As fotografias são exemplos de exemplares das plantas, obtidos do Wikimedia Com
 ## Alecrim — Salvia rosmarinus
 
 - Arquivo: `alecrim.jpg`
-- Fotografia: [File:331.4.24madaya.jpg](https://commons.wikimedia.org/wiki/File:331.4.24madaya.jpg)
-- Autor: Mabdmtmm
+- Fotografia: [File:-2020-06-06 Rosemary (Rosmarinus officinalis), Trimingham.JPG](https://commons.wikimedia.org/wiki/File:-2020-06-06_Rosemary_(Rosmarinus_officinalis),_Trimingham.JPG)
+- Autor: Kolforn ( Kolforn ) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original. https://creativecommons.org/licenses/by-sa/4.0 CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 true true
 - Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)

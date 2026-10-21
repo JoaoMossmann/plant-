@@ -20,7 +20,7 @@ import {
   Trash2,
   ChevronRight,
 } from "lucide-react";
-import { catalog, lightNames, toxicityLabel } from "./catalog";
+import { catalog, lightNames, toxicityLabel, spaceNames } from "./catalog";
 import { dayKey, dueDays, validateBackup, recommend } from "./domain";
 import { readGarden, saveGarden, imageData } from "./storage";
 import { supabase, cloudConfigured } from "./lib/supabase";
@@ -103,6 +103,7 @@ function App({ session, recovering, onRecovered }) {
     [modal, setModal] = useState(null),
     [query, setQuery] = useState(""),
     [region, setRegion] = useState("Sul"),
+    [space, setSpace] = useState("compacto"),
     [pet, setPet] = useState(false),
     [light, setLight] = useState(""),
     [onlyDue, setOnlyDue] = useState(false),
@@ -110,6 +111,7 @@ function App({ session, recovering, onRecovered }) {
       light: "indireta",
       pets: false,
       region: "Sul",
+      space: "compacto",
     }),
     [roomPhoto, setRoomPhoto] = useState(""),
     [roomResult, setRoomResult] = useState(false),
@@ -287,6 +289,7 @@ function App({ session, recovering, onRecovered }) {
   const species = catalog.filter(
     (p) =>
       p.regions.includes(region) &&
+      (space === "todos" || p.space === space) &&
       (!pet || p.pets) &&
       (!light || p.light === light) &&
       (p.name + " " + p.scientific).toLowerCase().includes(query.toLowerCase()),
@@ -601,9 +604,24 @@ function App({ session, recovering, onRecovered }) {
             </h1>
             <p className="intro">
               Espécies para conhecer, comparar e trazer mais verde para casa.
-              Fotos reais, cuidados e fontes em cada ficha.
+              Foco em vasos, apartamentos e casas menores. Fotos reais, cuidados
+              e fontes em cada ficha.
             </p>
             <div className="filters">
+              <label>
+                Espaço disponível
+                <select
+                  value={space}
+                  onChange={(e) => setSpace(e.target.value)}
+                >
+                  {Object.entries(spaceNames).map(([value, label]) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                  <option value="todos">Todos os portes</option>
+                </select>
+              </label>
               <label>
                 Região de cultivo
                 <select
@@ -650,10 +668,10 @@ function App({ session, recovering, onRecovered }) {
             <div className="notice">
               <BookOpen size={18} />
               <span>
-                {catalog.length} espécies selecionadas, não uma lista de todas
-                as plantas da região. O filtro indica possibilidades de cultivo,
-                não ocorrência nativa. Microclima e proteção do frio fazem
-                diferença.
+                {species.length} {species.length === 1 ? "opção" : "opções"}{" "}
+                neste filtro · {catalog.length} fichas disponíveis. O filtro
+                indica possibilidades de cultivo, não ocorrência nativa.
+                Microclima e proteção do frio fazem diferença.
               </span>
             </div>
             <div className="grid catalog-grid">
@@ -785,6 +803,20 @@ function App({ session, recovering, onRecovered }) {
                     </option>
                     <option value="baixa">Pouca claridade natural</option>
                     <option value="nenhuma">Não tem luz natural</option>
+                  </select>
+                </label>
+                <label>
+                  Espaço para a planta crescer
+                  <select
+                    value={room.space}
+                    onChange={(e) => {
+                      setRoom({ ...room, space: e.target.value });
+                      setRoomResult(false);
+                    }}
+                  >
+                    <option value="compacto">Vaso em um espaço pequeno</option>
+                    <option value="amplo">Tenho mais espaço livre</option>
+                    <option value="todos">Qualquer porte</option>
                   </select>
                 </label>
                 <label>

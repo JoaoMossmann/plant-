@@ -37,6 +37,7 @@ async function mockBackend(page) {
   const calls = {
     signup: 0,
     recovery: 0,
+    resend: 0,
     uploads: 0,
     downloads: 0,
     deletions: 0,
@@ -74,6 +75,10 @@ async function mockBackend(page) {
     if (path.endsWith("/signup")) {
       calls.signup++;
       return json({ user: user(A), session: null });
+    }
+    if (path.endsWith("/resend")) {
+      calls.resend++;
+      return json({});
     }
     if (path.endsWith("/recover")) {
       calls.recovery++;
@@ -234,8 +239,20 @@ test("cadastro e recuperação: confirmação e mensagens sem enumerar contas", 
   await page.getByLabel("E-mail", { exact: true }).fill("a@example.invalid");
   await page.getByLabel("Senha", { exact: true }).fill("a-test-password-long");
   await page.getByRole("button", { name: "Criar conta", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("instruções por e-mail");
+  await expect(
+    page.getByRole("heading", { name: "Confirme seu e-mail" }),
+  ).toBeVisible();
+  await expect(page.getByRole("status")).toContainText(
+    "primeiro abra o e-mail",
+  );
+  await expect(page.getByRole("status")).toContainText("a@example.invalid");
+  await expect(
+    page.getByRole("button", { name: /Reenviar e-mail em/ }),
+  ).toBeDisabled();
   expect(calls.signup).toBe(1);
+  await page
+    .getByRole("button", { name: "Já confirmei meu e-mail · entrar" })
+    .click();
   await page.getByRole("button", { name: "Esqueci minha senha" }).click();
   await page.getByLabel("E-mail", { exact: true }).fill("a@example.invalid");
   await page
@@ -316,4 +333,68 @@ test("exclusão de conta exige confirmação antes de chamar o servidor", async 
     page.getByRole("button", { name: "Entrar / criar conta" }),
   ).toBeVisible();
   expect(calls.deletions).toBe(1);
+});
+
+test("confirmação permite reenvio após intervalo, sem entrar automaticamente", async ({
+  page,
+}) => {
+  const { calls } = await mockBackend(page);
+  await page.clock.install();
+  await page.goto("/");
+  await page.getByRole("button", { name: "Entrar / criar conta" }).click();
+  await page.getByRole("button", { name: "Quero criar uma conta" }).click();
+  await page.getByLabel("E-mail", { exact: true }).fill("a@example.invalid");
+  await page.getByLabel("Senha", { exact: true }).fill("a-test-password-long");
+  await page.getByRole("button", { name: "Criar conta", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Confirme seu e-mail" }),
+  ).toBeVisible();
+  await page.clock.fastForward(61000);
+  await page
+    .getByRole("button", {
+      name: "Reenviar e-mail de confirmação",
+      exact: true,
+    })
+    .click();
+  expect(calls.resend).toBe(1);
+  await expect(page.getByRole("status")).toContainText("confirmação pendente");
+  await expect(
+    page.getByRole("button", { name: "Reenviar e-mail em 60s" }),
+  ).toBeDisabled();
+  await expect(page.getByText("Jardim da sua conta")).toHaveCount(0);
+});
+
+test("exploração começa em pequenos espaços e permite consultar todos os portes", async ({
+  page,
+}) => {
+  await mockBackend(page);
+  await page.goto("/");
+  await page
+    .getByRole("button", { name: "Explorar plantas", exact: true })
+    .click();
+  await expect(
+    page.getByRole("combobox", { name: "Espaço disponível" }),
+  ).toHaveValue("compacto");
+  await expect(
+    page.getByRole("heading", { name: "Ficus-lira", exact: true }),
+  ).toHaveCount(0);
+  await page
+    .getByRole("combobox", { name: "Espaço disponível" })
+    .selectOption("todos");
+  await expect(
+    page.getByRole("heading", { name: "Ficus-lira", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("combobox", { name: "Espaço disponível" })
+    .selectOption("compacto");
+  await page
+    .getByRole("textbox", { name: "Buscar espécie", exact: true })
+    .fill("alecrim");
+  await expect(
+    page.getByRole("heading", { name: "Alecrim", exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".catalog-grid img")).toHaveAttribute(
+    "alt",
+    /Alecrim/,
+  );
 });

@@ -1488,3 +1488,36 @@ body:has(.overlay) {
 .delete-confirm label {
   margin-bottom: 14px;
 }
+.confirm-email-icon {
+  font-size: 28px;
+  background: #e5eedc;
+  color: #547044;
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  margin-bottom: 18px;
+}
+.confirm-email h2:focus {
+  outline: none;
+}
+.confirm-email strong {
+  color: #49623c;
+}
+.confirm-email ol {
+  padding-left: 21px;
+  color: #6d7b64;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+.confirm-email li {
+  padding-bottom: 9px;
+}
+.confirm-email .secondary {
+  margin-top: 12px;
+}
+.confirm-email > .text-btn {
+  margin-top: 9px;
+}

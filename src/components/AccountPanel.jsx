@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { supabase, authRedirect, cloudConfigured } from "../lib/supabase";
 
 export function AccountPanel({
@@ -12,6 +12,50 @@ export function AccountPanel({
 }) {
   const [view, setView] = useState(recovering ? "password" : "signin");
   const [deleteStep, setDeleteStep] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState("");
+  const [resendSeconds, setResendSeconds] = useState(0);
+  const confirmationHeading = useRef(null);
+  const resendUntil = useRef(0);
+  function startCooldown() {
+    resendUntil.current = Date.now() + 60000;
+    setResendSeconds(60);
+  }
+  useEffect(() => {
+    if (view !== "confirm") return;
+    confirmationHeading.current?.focus();
+    const timer = setInterval(
+      () =>
+        setResendSeconds(
+          Math.max(0, Math.ceil((resendUntil.current - Date.now()) / 1000)),
+        ),
+      1000,
+    );
+    return () => clearInterval(timer);
+  }, [view]);
+  async function resendConfirmation() {
+    if (busy || resendSeconds > 0) return;
+    setBusy(true);
+    setMessage("");
+    setError("");
+    try {
+      const { error } = await supabase.auth.resend({
+        type: "signup",
+        email: submittedEmail,
+        options: { emailRedirectTo: authRedirect() },
+      });
+      if (error) throw error;
+      setMessage(
+        "Se houver uma confirmação pendente para esse endereço, você receberá um novo link. Confira também o spam.",
+      );
+    } catch {
+      setError(
+        "Não foi possível reenviar agora. Aguarde um pouco e tente novamente.",
+      );
+    } finally {
+      startCooldown();
+      setBusy(false);
+    }
+  }
   const [busy, setBusy] = useState(false),
     [message, setMessage] = useState(""),
     [error, setError] = useState("");
@@ -60,10 +104,11 @@ export function AccountPanel({
       if (view === "password")
         result = await supabase.auth.updateUser({ password });
       if (result?.error) throw result.error;
-      if (view === "signup")
-        setMessage(
-          "Se o endereço puder ser cadastrado, você receberá as instruções por e-mail. Confirme o endereço para entrar.",
-        );
+      if (view === "signup" && !result.data?.session) {
+        setSubmittedEmail(email);
+        startCooldown();
+        setView("confirm");
+      }
       if (view === "forgot")
         setMessage(
           "Se houver uma conta para esse endereço, enviaremos um link para redefinir a senha.",
@@ -196,6 +241,71 @@ export function AccountPanel({
         )}
       </>
     );
+  if (view === "confirm")
+    return (
+      <section className="confirm-email" role="status" aria-live="polite">
+        <div className="eyebrow">FALTA SÓ UM PASSO</div>
+        <div className="confirm-email-icon" aria-hidden="true">
+          ✉
+        </div>
+        <h2 ref={confirmationHeading} tabIndex={-1}>
+          Confirme seu e-mail
+        </h2>
+        <p>
+          Para acessar sua conta, primeiro abra o e-mail de confirmação enviado
+          para <strong className="account-email">{submittedEmail}</strong> e
+          clique no link.
+        </p>
+        <ol>
+          <li>Confira a caixa de entrada e a pasta de spam.</li>
+          <li>Abra o link no mesmo navegador em que você fez o cadastro.</li>
+          <li>Depois da confirmação, volte aqui e entre com sua senha.</li>
+        </ol>
+        <p className="footnote">
+          Se já houver uma conta para esse endereço, entre ou recupere sua
+          senha. Não é necessário criar outra conta.
+        </p>
+        {error && (
+          <p className="auth-error" role="alert">
+            {error}
+          </p>
+        )}
+        {message && <p className="auth-success">{message}</p>}
+        <button
+          className="primary full"
+          disabled={busy}
+          onClick={() => {
+            setView("signin");
+            setMessage("");
+            setError("");
+          }}
+        >
+          Já confirmei meu e-mail · entrar
+        </button>
+        <button
+          className="secondary full"
+          disabled={busy || resendSeconds > 0}
+          onClick={resendConfirmation}
+        >
+          {busy
+            ? "Reenviando…"
+            : resendSeconds > 0
+              ? `Reenviar e-mail em ${resendSeconds}s`
+              : "Reenviar e-mail de confirmação"}
+        </button>
+        <button
+          className="text-btn"
+          disabled={busy}
+          onClick={() => {
+            setView("signup");
+            setMessage("");
+            setError("");
+          }}
+        >
+          Corrigir meu endereço de e-mail
+        </button>
+      </section>
+    );
   const titles = {
     signin: "Bom ter você por aqui.",
     signup: "Seu jardim começa aqui.",
@@ -216,6 +326,7 @@ export function AccountPanel({
             E-mail
             <input
               name="email"
+              defaultValue={submittedEmail}
               type="email"
               autoComplete="email"
               required

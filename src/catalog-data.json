@@ -88,12 +88,14 @@
       }
     ],
     "image": {
-      "title": "File:Zamioculcas zamiifolia 7zz.jpg",
-      "page": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_7zz.jpg",
-      "author": "Photo by David J. Stang",
+      "title": "File:Zamioculcas zamiifolia Chameleon 1.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_Chameleon_1.jpg",
+      "author": "Dbwolfe",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "alt": "Zamioculca — exemplar de Zamioculcas zamiifolia"
+      "alt": "Zamioculca — exemplar de Zamioculcas zamiifolia",
+      "fit": "contain",
+      "caption": "Exemplar em vaso, cultivar Chameleon."
     }
   },
   {
@@ -632,11 +634,11 @@
       }
     ],
     "image": {
-      "title": "File:Ficus lyrata chippendale1.jpg",
-      "page": "https://commons.wikimedia.org/wiki/File:Ficus_lyrata_chippendale1.jpg",
-      "author": "Casliber",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "File:Ficus lyrata indoor house second floor - July 2026.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ficus_lyrata_indoor_house_second_floor_-_July_2026.jpg",
+      "author": "Ranch9613",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "alt": "Ficus-lira — exemplar de Ficus lyrata"
     }
   },
@@ -666,12 +668,13 @@
       }
     ],
     "image": {
-      "title": "File:Schefflera arboricola, vrugte, c, Pretoria.jpg",
-      "page": "https://commons.wikimedia.org/wiki/File:Schefflera_arboricola,_vrugte,_c,_Pretoria.jpg",
-      "author": "JMK",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "alt": "Cheflera — exemplar de Schefflera arboricola"
+      "title": "File:Dwarf umbrella tree (Schefflera arboricola).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Dwarf_umbrella_tree_(Schefflera_arboricola).jpg",
+      "author": "Dandy1022",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "alt": "Cheflera — exemplar de Schefflera arboricola",
+      "fit": "contain"
     }
   },
   {
@@ -1224,12 +1227,13 @@
       }
     ],
     "image": {
-      "title": "File:Adiantum raddianum - Botanischer Garten München-Nymphenburg - DSC08177.JPG",
-      "page": "https://commons.wikimedia.org/wiki/File:Adiantum_raddianum_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08177.JPG",
-      "author": "Daderot",
-      "license": "Public domain",
-      "licenseUrl": "",
-      "alt": "Avenca — exemplar de Adiantum raddianum"
+      "title": "File:Frauenhaarfarn (Adiantum raddianum 'Fragrans') (20524424239).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Frauenhaarfarn_(Adiantum_raddianum_%27Fragrans%27)_(20524424239).jpg",
+      "author": "Maja Dumat from Deutschland (Germany)",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "alt": "Avenca — exemplar de Adiantum raddianum",
+      "fit": "contain"
     }
   },
   {
@@ -1326,12 +1330,13 @@
       }
     ],
     "image": {
-      "title": "File:331.4.24madaya.jpg",
-      "page": "https://commons.wikimedia.org/wiki/File:331.4.24madaya.jpg",
-      "author": "Mabdmtmm",
+      "title": "File:-2020-06-06 Rosemary (Rosmarinus officinalis), Trimingham.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:-2020-06-06_Rosemary_(Rosmarinus_officinalis),_Trimingham.JPG",
+      "author": "Kolforn ( Kolforn ) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original. https://creativecommons.org/licenses/by-sa/4.0 CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 true true",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "alt": "Alecrim — exemplar de Salvia rosmarinus"
+      "alt": "Alecrim — exemplar de Salvia rosmarinus",
+      "fit": "contain"
     }
   }
 ]

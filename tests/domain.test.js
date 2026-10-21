@@ -121,3 +121,15 @@ test("fichas têm fontes e fotos locais; classificação ausente não vira indic
     }).length === 0,
   );
 });
+
+test("sugestão para espaço pequeno não inclui plantas que exigem mais espaço", () => {
+  const small = recommend(catalog, {
+    region: "Sul",
+    light: "indireta",
+    pets: false,
+    space: "compacto",
+  });
+  assert.ok(small.length > 0);
+  assert.ok(small.every((p) => p.space === "compacto"));
+  assert.ok(!small.some((p) => p.id === "ficus-lyrata" || p.id === "costela"));
+});

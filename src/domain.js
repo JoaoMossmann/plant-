@@ -74,11 +74,12 @@ function validDate(value) {
     parsed.toISOString().slice(0, 10) === value
   );
 }
-export function recommend(plants, { light, pets, region }) {
+export function recommend(plants, { light, pets, region, space }) {
   return plants.filter(
     (p) =>
       light !== "nenhuma" &&
       p.regions.includes(region) &&
+      (!space || space === "todos" || p.space === space) &&
       (!pets || p.pets === true) &&
       (light === "baixa"
         ? p.light === "baixa"
