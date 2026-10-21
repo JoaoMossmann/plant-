@@ -279,5 +279,5 @@ As fotografias são exemplos de exemplares das plantas, obtidos do Wikimedia Com
 
 - Arquivo: `alecrim.jpg`
 - Fotografia: [File:-2020-06-06 Rosemary (Rosmarinus officinalis), Trimingham.JPG](https://commons.wikimedia.org/wiki/File:-2020-06-06_Rosemary_(Rosmarinus_officinalis),_Trimingham.JPG)
-- Autor: Kolforn ( Kolforn ) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original. https://creativecommons.org/licenses/by-sa/4.0 CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 true true
+- Autor: Kolforn
 - Licença: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
