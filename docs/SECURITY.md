@@ -25,3 +25,7 @@ Não há identificação por IA ou envio de fotos a serviços de análise nesta 
 Conclua testes de isolamento com duas contas no Supabase real, confirmação e recuperação de e-mail, CAPTCHA/rate limits, exclusão da conta e seus arquivos, privacidade e retenção de dados, revisão editorial das fichas e acompanhamento das cotas. Testes locais de SQL não comprovam sozinhos a configuração do projeto remoto.
 
 Se uma credencial secreta vazar, revogue-a ou troque-a antes de remover referências do Git. URLs antigas, caches e clones podem preservar versões anteriores. Para relatar um problema, use um canal privado do mantenedor no perfil do GitHub, sem postar segredos em issues públicas.
+
+## Verificação reproduzível
+
+Após `npm run build`, execute `npm run audit:public -- --history`. O workflow verifica os artefatos antes da publicação. O comando identifica padrões conhecidos e não imprime os valores encontrados. Veja o [relatório de 21/10/2026](SECURITY-AUDIT-2026-10-21.md) para evidências, limites e pendências.
