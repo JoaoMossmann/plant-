@@ -40,3 +40,9 @@ Jardins locais ficam no IndexedDB e não são sincronizados automaticamente. Dad
 Backups do banco não incluem os objetos das fotos. Manter e testar recuperação de ambos, com retenção e acesso controlados. Não guardar backups pessoais no Git.
 
 Os créditos e as licenças das fotografias estão em `src/assets/plants/CREDITS.md` e nas fichas do catálogo. Preservá-los ao redistribuir as imagens.
+
+## Perfil
+
+A tela de perfil depende da migração aprovada `202611040001_community_foundation.sql`. Teste-a em homologação antes de aplicar ao ambiente ativo; o merge não executa SQL. Não repita as migrações de jardins já aplicadas. Confirme login, criação/edição do perfil e isolamento entre duas contas antes de liberar o recurso.
+
+Enquanto a interface estiver no Pages, a navegação usa fragmentos como `#/perfil`, permitindo recarregar sem regras de redirecionamento de servidor. Na migração de hospedagem, preserve esses links ou ofereça redirecionamento compatível.

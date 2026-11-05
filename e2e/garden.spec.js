@@ -34,6 +34,7 @@ function user(id) {
 // Serviço simulado somente para exercitar a interface. RLS é verificado separadamente no PostgreSQL.
 async function mockBackend(page) {
   const gardens = new Map();
+  const profiles = new Map();
   const calls = {
     signup: 0,
     recovery: 0,
@@ -113,6 +114,36 @@ async function mockBackend(page) {
       gardens.delete(id);
       return json({ deleted: true });
     }
+    if (path === "/rest/v1/cities")
+      return json([
+        { id: "sao-leopoldo-rs", name: "São Leopoldo", state_code: "RS" },
+        { id: "novo-hamburgo-rs", name: "Novo Hamburgo", state_code: "RS" },
+      ]);
+    if (path === "/rest/v1/profiles") {
+      if (req.method() === "GET")
+        return json(profiles.has(id) ? [profiles.get(id)] : []);
+      const body = req.postDataJSON();
+      if (
+        [...profiles.values()].some(
+          (p) => p.user_id !== id && p.handle === body.handle,
+        )
+      )
+        return json({ code: "23505" }, 409);
+      const current = profiles.get(id);
+      if (
+        req.method() === "PATCH" &&
+        (!current ||
+          url.searchParams.get("updated_at") !== "eq." + current.updated_at)
+      )
+        return json({ code: "PGRST116" }, 406);
+      const row = {
+        ...body,
+        user_id: id,
+        updated_at: new Date().toISOString(),
+      };
+      profiles.set(id, row);
+      return json(row);
+    }
     if (path === "/rest/v1/gardens")
       return json(gardens.has(id) ? [gardens.get(id)] : []);
     if (path.endsWith("/rpc/save_my_garden")) {
@@ -126,7 +157,7 @@ async function mockBackend(page) {
     }
     return json({ error: "Unmocked endpoint" }, 500);
   });
-  return { gardens, calls };
+  return { gardens, profiles, calls };
 }
 async function signIn(page, email) {
   await page.getByRole("button", { name: "Entrar / criar conta" }).click();
@@ -396,5 +427,164 @@ test("exploração começa em pequenos espaços e permite consultar todos os por
   await expect(page.locator(".catalog-grid img")).toHaveAttribute(
     "alt",
     /Alecrim/,
+  );
+});
+
+test("perfil cria, edita e persiste sem compartilhar dados do jardim", async ({
+  page,
+}) => {
+  const { profiles } = await mockBackend(page);
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page.getByRole("button", { name: "Meu perfil", exact: true }).click();
+  await expect(page).toHaveURL(/#\/perfil$/);
+  await page
+    .getByLabel("Nome de exibição", { exact: true })
+    .fill("Meu cantinho");
+  await page.getByLabel("Identificador", { exact: true }).fill("meu_cantinho");
+  await page
+    .getByLabel("Apresentação", { exact: true })
+    .fill("Gosto de marantas.");
+  await page
+    .getByRole("combobox", { name: "Cidade (opcional)", exact: true })
+    .selectOption("sao-leopoldo-rs");
+  await page.getByRole("button", { name: "Criar perfil", exact: true }).click();
+  await expect(page.getByRole("status")).toContainText("Perfil salvo");
+  expect(profiles.get(A).city_id).toBe("sao-leopoldo-rs");
+  expect(profiles.get(A).email).toBeUndefined();
+  expect(profiles.get(A).role).toBeUndefined();
+  await page.reload();
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue("Meu cantinho");
+  await page
+    .getByRole("combobox", { name: "Cidade (opcional)", exact: true })
+    .selectOption("");
+  await page.getByLabel("Nome de exibição").fill("Meu novo cantinho");
+  await page.getByRole("button", { name: "Salvar alterações" }).click();
+  await expect(page.getByRole("status")).toContainText("Perfil salvo");
+  expect(profiles.get(A).city_id).toBeNull();
+  await page
+    .getByRole("button", { name: "Minhas plantas", exact: true })
+    .click();
+  await page.goBack();
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue(
+    "Meu novo cantinho",
+  );
+});
+test("perfil exige login e não reutiliza perfil de outra conta", async ({
+  page,
+}) => {
+  const { profiles } = await mockBackend(page);
+  profiles.set(A, {
+    user_id: A,
+    handle: "conta_a",
+    display_name: "Perfil A",
+    bio: "",
+    city_id: null,
+    updated_at: "2026-01-01",
+  });
+  await page.goto("/#/perfil");
+  await expect(
+    page.getByRole("heading", { name: "Seu perfil começa com uma conta." }),
+  ).toBeVisible();
+  await page.goto("/");
+  await signIn(page, "b@example.invalid");
+  await page.getByRole("button", { name: "Meu perfil", exact: true }).click();
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue("");
+  await expect(page.getByText("Perfil A", { exact: true })).toHaveCount(0);
+});
+test("perfil mantém edição quando identificador já está ocupado", async ({
+  page,
+}) => {
+  const { profiles } = await mockBackend(page);
+  profiles.set(B, {
+    user_id: B,
+    handle: "ocupado",
+    display_name: "Outro perfil",
+    updated_at: "2026-01-01",
+  });
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page.getByRole("button", { name: "Meu perfil", exact: true }).click();
+  await page.getByLabel("Nome de exibição").fill("Meu perfil");
+  await page.getByLabel("Identificador", { exact: true }).fill("ocupado");
+  await page.getByRole("button", { name: "Criar perfil", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "identificador já está em uso",
+  );
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue("Meu perfil");
+  expect(profiles.has(A)).toBe(false);
+});
+
+test("perfil indisponível não mostra erro interno e permite tentar novamente", async ({
+  page,
+}) => {
+  await mockBackend(page);
+  let unavailable = true;
+  await page.route(/\/rest\/v1\/profiles(?:\?|$)/, (route) =>
+    unavailable
+      ? route.fulfill({
+          status: 404,
+          contentType: "application/json",
+          body: JSON.stringify({
+            code: "PGRST205",
+            message: "detalhe-interno-nao-exibir",
+          }),
+        })
+      : route.fallback(),
+  );
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page.getByRole("button", { name: "Meu perfil", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("indisponível");
+  await expect(page.getByText("detalhe-interno-nao-exibir")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Criar perfil", exact: true }),
+  ).toHaveCount(0);
+  unavailable = false;
+  await page
+    .getByRole("button", { name: "Tentar novamente", exact: true })
+    .click();
+  await expect(page.getByLabel("Nome de exibição")).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
+test("edição concorrente de perfil não apaga alteração feita em outro aparelho", async ({
+  page,
+}) => {
+  const { profiles } = await mockBackend(page);
+  profiles.set(A, {
+    user_id: A,
+    handle: "conta_a",
+    display_name: "Original",
+    bio: "",
+    city_id: null,
+    updated_at: "2026-01-01T00:00:00Z",
+  });
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page.getByRole("button", { name: "Meu perfil", exact: true }).click();
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue("Original");
+  profiles.set(A, {
+    ...profiles.get(A),
+    display_name: "Alterado em outro aparelho",
+    updated_at: "2026-01-02T00:00:00Z",
+  });
+  await page.getByLabel("Nome de exibição").fill("Edição ainda não salva");
+  await page
+    .getByRole("button", { name: "Salvar alterações", exact: true })
+    .click();
+  await expect(page.getByRole("alert")).toContainText("Recarregue os dados");
+  expect(profiles.get(A).display_name).toBe("Alterado em outro aparelho");
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue(
+    "Edição ainda não salva",
+  );
+  await page.getByRole("button", { name: "Recarregar dados salvos" }).click();
+  await expect(page.getByLabel("Nome de exibição")).toHaveValue(
+    "Alterado em outro aparelho",
   );
 });

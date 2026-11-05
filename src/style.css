@@ -1521,3 +1521,132 @@ body:has(.overlay) {
 .confirm-email > .text-btn {
   margin-top: 9px;
 }
+
+.profile-page {
+  max-width: 1120px;
+}
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 25px;
+  margin: 25px 0;
+}
+.profile-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 25px;
+  border-radius: 16px;
+  display: grid;
+  gap: 15px;
+}
+.profile-form h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.profile-form .footnote {
+  margin: 0;
+}
+.profile-form input,
+.profile-form textarea,
+.profile-form select {
+  width: 100%;
+  min-width: 0;
+}
+.profile-counter {
+  font-size: 10px;
+  text-align: right;
+  color: #7d8b73;
+  margin-top: -10px;
+}
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.profile-preview {
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  background: #eaf0e1;
+  border: 1px solid #dce5cf;
+  padding: 28px;
+  border-radius: 16px;
+  align-self: start;
+  z-index: auto;
+  display: block;
+  overflow-wrap: anywhere;
+}
+.profile-monogram {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 24px;
+  background: #d4e3c3;
+  color: #46633b;
+  font-size: 30px;
+  margin: 24px 0;
+}
+.profile-preview h2 {
+  margin-bottom: 7px;
+}
+.profile-handle {
+  font-size: 12px;
+}
+.profile-bio {
+  white-space: pre-wrap;
+}
+.profile-preview-note {
+  display: block;
+  font-size: 10px;
+  line-height: 1.7;
+  color: #7a886e;
+  border-top: 1px solid #d5dfca;
+  padding-top: 17px;
+  margin-top: 22px;
+}
+@media (max-width: 760px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-form {
+    padding: 20px;
+  }
+  .profile-preview {
+    position: static;
+    width: auto;
+    padding: 22px;
+  }
+  .app > aside nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+  .app > aside nav button {
+    flex-shrink: 0;
+  }
+  .profile-page h1 {
+    font-size: 33px;
+  }
+}
+@media (max-width: 760px) {
+  .app > aside nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+    gap: 2px;
+  }
+  .app > aside nav button {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    padding: 10px 2px;
+    font-size: 9px;
+    min-width: 0;
+    white-space: normal;
+  }
+}
