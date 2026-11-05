@@ -1,5 +1,6 @@
 # Documentação
 
+- [Arquitetura](ARQUITETURA.md): revisão da base, decisões técnicas, esquema, permissões e migração incremental.
 - [Produto proposto](PRODUTO.md): escopo comercial, telas, fluxos, modelo de dados, privacidade e etapas.
 - [Desenvolvimento](DEVELOPMENT.md): instalação, comandos e publicação do protótipo.
 - [Supabase](SUPABASE.md): configuração da base atual de contas e armazenamento.
