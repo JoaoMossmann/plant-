@@ -19,6 +19,7 @@ import {
   Check,
   Trash2,
   ChevronRight,
+  UserRound,
 } from "lucide-react";
 import { catalog, lightNames, toxicityLabel, spaceNames } from "./catalog";
 import { dayKey, dueDays, validateBackup, recommend } from "./domain";
@@ -27,6 +28,8 @@ import { supabase, cloudConfigured } from "./lib/supabase";
 import { createCloudGarden } from "./lib/cloud-garden";
 import { AccountPanel } from "./components/AccountPanel";
 import { CatalogPhoto, PlantReferences } from "./components/CatalogPhoto";
+import { ProfilePage } from "./components/ProfilePage";
+import { pagePaths, pageForHash } from "./lib/routes";
 import "./style.css";
 const regions = ["Sul", "Sudeste", "Centro-Oeste", "Nordeste", "Norte"];
 function AuthApp() {
@@ -95,7 +98,7 @@ function AuthApp() {
   );
 }
 function App({ session, recovering, onRecovered }) {
-  const [page, setPage] = useState("garden"),
+  const [page, setPage] = useState(() => pageForHash(window.location.hash)),
     [plants, setPlants] = useState([]),
     [loaded, setLoaded] = useState(false),
     [error, setError] = useState(""),
@@ -245,7 +248,17 @@ function App({ session, recovering, onRecovered }) {
       "Rega registrada. Sua planta agradece!",
     );
   }
+  useEffect(() => {
+    const changed = () => {
+      setPage(pageForHash(window.location.hash));
+      setQuery("");
+      setOnlyDue(false);
+    };
+    window.addEventListener("hashchange", changed);
+    return () => window.removeEventListener("hashchange", changed);
+  }, []);
   function nav(p) {
+    window.location.hash = pagePaths[p];
     setPage(p);
     setQuery("");
     setOnlyDue(false);
@@ -316,10 +329,12 @@ function App({ session, recovering, onRecovered }) {
             ["garden", Sprout, "Minhas plantas"],
             ["catalog", BookOpen, "Explorar plantas"],
             ["room", House, "Meu ambiente"],
+            ["profile", UserRound, "Meu perfil"],
           ].map(([id, Icon, label]) => (
             <button
               key={id}
               className={page === id ? "active" : ""}
+              aria-current={page === id ? "page" : undefined}
               onClick={() => nav(id)}
             >
               <Icon size={20} />
@@ -381,6 +396,12 @@ function App({ session, recovering, onRecovered }) {
               <X size={16} />
             </button>
           </div>
+        )}
+        {page === "profile" && (
+          <ProfilePage
+            session={session}
+            onSignIn={() => setModal({ type: "account" })}
+          />
         )}
         {page === "garden" && (
           <>
