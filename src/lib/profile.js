@@ -1,3 +1,5 @@
+import { checkWriteLimit } from "./write-limit.js";
+
 const fields = "user_id,handle,display_name,bio,city_id,updated_at";
 const reserved = new Set([
   "admin",
@@ -36,6 +38,7 @@ export function profileInput(input) {
 }
 function check(error) {
   if (!error) return;
+  checkWriteLimit(error);
   if (error.code === "23505")
     throw new Error(
       "Esse identificador já está em uso. Escolha outro ou atualize seu perfil.",
