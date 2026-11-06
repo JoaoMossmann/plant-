@@ -46,3 +46,9 @@ Os créditos e as licenças das fotografias estão em `src/assets/plants/CREDITS
 A tela de perfil depende da migração aprovada `202611040001_community_foundation.sql`. Teste-a em homologação antes de aplicar ao ambiente ativo; o merge não executa SQL. Não repita as migrações de jardins já aplicadas. Confirme login, criação/edição do perfil e isolamento entre duas contas antes de liberar o recurso.
 
 Enquanto a interface estiver no Pages, a navegação usa fragmentos como `#/perfil`, permitindo recarregar sem regras de redirecionamento de servidor. Na migração de hospedagem, preserve esses links ou ofereça redirecionamento compatível.
+
+## Limites de gravação
+
+A migração `202611060001_write_limits.sql` depende das três anteriores. Aplique primeiro em homologação. O banco limita por conta: jardim com saldo de 30 gravações, reposição de 30 por minuto e até 2.000 por dia; perfil com saldo de 10, reposição de 10 por minuto e até 100 por dia. O dia reinicia em UTC. Erros e transações desfeitas não consomem saldo; esse controle não substitui proteção contra tráfego abusivo, limites globais ou cotas de fotos. Gravações exigem a sessão do proprietário, inclusive em futuras rotinas de backend.
+
+Execute `supabase/checks/security_inventory.sql` no SQL Editor para consultar configuração, sem dados pessoais. Revise presença das tabelas, RLS, permissões, políticas e gatilhos; a consulta não certifica segurança automaticamente. Confirme também isolamento com duas contas de teste pelas APIs reais. Não publique tokens ou resultados que revelem configurações internas. Uploads ainda precisam de cotas por conta e validação do conteúdo no servidor.
