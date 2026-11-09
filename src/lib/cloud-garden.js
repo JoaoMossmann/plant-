@@ -1,3 +1,5 @@
+import { checkWriteLimit, WriteLimitError } from "./write-limit.js";
+
 const bucket = "plant-photos";
 export class ConflictError extends Error {
   constructor() {
@@ -103,6 +105,7 @@ export function createCloudGarden(client, userId) {
           new_plants: stored,
         });
         if (error) {
+          checkWriteLimit(error);
           if (error.code === "40001") throw new ConflictError();
           throw new Error(
             "Não foi possível salvar na conta. Confira sua conexão e tente novamente.",
@@ -127,8 +130,13 @@ export function createCloudGarden(client, userId) {
         }
       } catch (error) {
         // Em falha de rede, o commit pode ter ocorrido no servidor. Não apague uploads cujo estado é incerto.
-        // Conflito é uma rejeição explícita; nessa situação os novos uploads podem ser removidos.
-        if (!committed && error instanceof ConflictError && staged.length) {
+        // Conflito e limite são rejeições explícitas; seus novos uploads podem ser removidos.
+        if (
+          !committed &&
+          (error instanceof ConflictError ||
+            error instanceof WriteLimitError) &&
+          staged.length
+        ) {
           try {
             await storage.remove(staged);
           } catch {
