@@ -171,11 +171,29 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
       "utf8",
     ),
   );
-  const tables = inventory
-    .flatMap((result) => result.rows || [])
-    .filter((row) => "rls_enabled" in row);
+  const reports = inventory.flatMap((result) => result.rows || []);
+  assert.equal(reports.length, 1);
+  const report = reports[0].security_inventory;
+  const tables = report.tables;
   assert.equal(tables.length, 7);
   assert.ok(tables.every((row) => row.installed && row.rls_enabled));
+  assert.ok(report.policies.some((row) => row.tablename === "gardens"));
+  assert.ok(
+    report.table_permissions.some((row) => row.table_name === "gardens"),
+  );
+  assert.ok(
+    report.column_permissions.some((row) => row.column_name === "handle"),
+  );
+  assert.ok(
+    report.functions.some(
+      (row) => row.proname === "save_my_garden" && row.security_definer,
+    ),
+  );
+  assert.ok(
+    report.triggers.some((row) => row.trigger_name === "limit_garden_writes"),
+  );
+  assert.equal(report.buckets[0].public, false);
+  assert.equal(report.buckets[0].file_size_limit, 2097152);
   await db.query("delete from auth.users where id=$1", [a]);
   assert.equal(
     (
