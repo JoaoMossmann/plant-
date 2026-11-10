@@ -17,7 +17,7 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
     grant execute on function auth.uid() to authenticated,anon;
     create schema storage;
     create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);
-    create table storage.objects(id text primary key,bucket_id text,name text);
+    create table storage.objects(id text primary key,bucket_id text,name text,metadata jsonb);
     alter table storage.objects enable row level security;
     grant usage on schema storage to authenticated;
     grant select,insert,delete on storage.objects to authenticated;
@@ -28,6 +28,7 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
     "202610210002_validate_payload.sql",
     "202611040001_community_foundation.sql",
     "202611060001_write_limits.sql",
+    "202611100001_protected_photos.sql",
   ])
     await db.exec(
       await readFile(
@@ -175,7 +176,7 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
   assert.equal(reports.length, 1);
   const report = reports[0].security_inventory;
   const tables = report.tables;
-  assert.equal(tables.length, 7);
+  assert.equal(tables.length, 9);
   assert.ok(tables.every((row) => row.installed && row.rls_enabled));
   assert.ok(report.policies.some((row) => row.tablename === "gardens"));
   assert.ok(

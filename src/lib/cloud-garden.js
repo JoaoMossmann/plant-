@@ -1,6 +1,6 @@
 import { checkWriteLimit, WriteLimitError } from "./write-limit.js";
+import { createPhotoStore, PhotoOperationError } from "./photos.js";
 
-const bucket = "plant-photos";
 export class ConflictError extends Error {
   constructor() {
     super(
@@ -23,10 +23,15 @@ export function toStoredPlant(p, photoPath = null) {
     photoPath,
   };
 }
-export function createCloudGarden(client, userId) {
+export function createCloudGarden(
+  client,
+  userId,
+  { serverPhotos = false } = {},
+) {
   let version = 0;
   let paths = new Map();
-  const storage = client.storage.from(bucket);
+  const photos = createPhotoStore(client, userId, serverPhotos);
+  let cleanupPending = false;
   async function materialize(rows) {
     const result = [];
     // Limite de concorrência para não disparar centenas de downloads ao mesmo tempo.
@@ -36,11 +41,7 @@ export function createCloudGarden(client, userId) {
           const { photoPath, ...plant } = row;
           let photo = "";
           if (photoPath) {
-            const { data, error } = await storage.download(photoPath);
-            if (error)
-              throw new Error(
-                "Não foi possível carregar uma foto privada. Tente atualizar os dados.",
-              );
+            const data = await photos.download(photoPath);
             photo = await blobData(data);
           }
           return { ...plant, photo };
@@ -51,6 +52,9 @@ export function createCloudGarden(client, userId) {
     return result;
   }
   return {
+    get cleanupPending() {
+      return cleanupPending;
+    },
     async load() {
       const { data, error } = await client
         .from("gardens")
@@ -65,6 +69,12 @@ export function createCloudGarden(client, userId) {
       const result = await materialize(data?.plants || []);
       version = data?.version || 0;
       paths = new Map((data?.plants || []).map((p) => [p.id, p.photoPath]));
+      try {
+        await photos.cleanup();
+        cleanupPending = false;
+      } catch {
+        cleanupPending = true;
+      }
       return result;
     },
     async save(next, previous) {
@@ -77,25 +87,11 @@ export function createCloudGarden(client, userId) {
           let path = paths.get(p.id) || null;
           if (p.photo && p.photo !== old.get(p.id)?.photo) {
             if (!/^data:image\/(jpeg|png|webp);base64,/.test(p.photo))
-              throw new Error("Foto inválida.");
+              throw new PhotoOperationError("invalid_image");
             const blob = await (await fetch(p.photo)).blob();
             if (blob.size > 2 * 1024 * 1024)
-              throw new Error("A foto excede 2 MB. Escolha uma foto menor.");
-            const extension =
-              blob.type === "image/png"
-                ? "png"
-                : blob.type === "image/webp"
-                  ? "webp"
-                  : "jpg";
-            path = `${userId}/${crypto.randomUUID()}.${extension}`;
-            const { error } = await storage.upload(path, blob, {
-              contentType: blob.type,
-              upsert: false,
-            });
-            if (error)
-              throw new Error(
-                "Não foi possível enviar uma foto. Nenhuma alteração foi salva.",
-              );
+              throw new PhotoOperationError("image_size");
+            path = await photos.upload(blob);
             staged.push(path);
           } else if (!p.photo) path = null;
           stored.push(toStoredPlant(p, path));
@@ -123,22 +119,24 @@ export function createCloudGarden(client, userId) {
         // Falha de limpeza não desfaz um salvamento concluído; somente fotos sem referência são removidas.
         if (obsolete.length) {
           try {
-            await storage.remove([...new Set(obsolete)]);
+            await photos.remove(obsolete);
           } catch {
-            /* coleta posterior pelo proprietário */
+            cleanupPending = true;
           }
         }
+        return { cleanupPending };
       } catch (error) {
         // Em falha de rede, o commit pode ter ocorrido no servidor. Não apague uploads cujo estado é incerto.
-        // Conflito e limite são rejeições explícitas; seus novos uploads podem ser removidos.
+        // Rejeições explícitas e erros de foto anteriores ao RPC permitem limpar os uploads já confirmados.
         if (
           !committed &&
           (error instanceof ConflictError ||
-            error instanceof WriteLimitError) &&
+            error instanceof WriteLimitError ||
+            error instanceof PhotoOperationError) &&
           staged.length
         ) {
           try {
-            await storage.remove(staged);
+            await photos.remove(staged);
           } catch {
             /* preservar o erro original */
           }

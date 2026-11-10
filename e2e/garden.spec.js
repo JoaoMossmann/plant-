@@ -42,6 +42,7 @@ async function mockBackend(page) {
     uploads: 0,
     downloads: 0,
     deletions: 0,
+    directStorage: 0,
   };
   await page.route("https://garden-e2e.supabase.co/**", async (route) => {
     const req = route.request();
@@ -95,6 +96,7 @@ async function mockBackend(page) {
       ).sub;
     } catch {}
     if (path.startsWith("/storage/v1/object/")) {
+      calls.directStorage++;
       if (req.method() === "POST") {
         calls.uploads++;
         return json({ Key: path.split("/object/")[1] });
@@ -113,6 +115,28 @@ async function mockBackend(page) {
       calls.deletions++;
       gardens.delete(id);
       return json({ deleted: true });
+    }
+    if (path === "/functions/v1/plant-photos") {
+      if (req.headers()["content-type"]?.startsWith("image/")) {
+        calls.uploads++;
+        return json({ path: `${id}/${crypto.randomUUID()}.jpg` }, 201);
+      }
+      const body = req.postDataJSON();
+      if (body.action === "read") {
+        calls.downloads++;
+        return route.fulfill({
+          status: 200,
+          headers: {
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "x-photo-type",
+            "x-photo-type": "image/jpeg",
+            "cache-control": "private, no-store",
+          },
+          contentType: "application/octet-stream",
+          body: await readFile("src/assets/plants/maranta.jpg"),
+        });
+      }
+      return json({ removed: body.paths?.length || 0 });
     }
     if (path === "/rest/v1/cities")
       return json([
@@ -345,6 +369,108 @@ test("conta: foto usa caminho privado e recarrega por download autenticado", asy
   await page.reload();
   await expect(page.locator(".plant-card .plant-image img")).toBeVisible();
   expect(calls.downloads).toBe(1);
+  expect(calls.directStorage).toBe(0);
+});
+
+test("cota de fotos mantém formulário e permite nova tentativa sem duplicar a planta", async ({
+  page,
+}) => {
+  const { gardens } = await mockBackend(page);
+  let quota = true;
+  await page.route("**/functions/v1/plant-photos", (route) =>
+    quota && route.request().headers()["content-type"]?.startsWith("image/")
+      ? route.fulfill({
+          status: 413,
+          contentType: "application/json",
+          headers: { "access-control-allow-origin": "*" },
+          body: JSON.stringify({ code: "photo_quota" }),
+        })
+      : route.fallback(),
+  );
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page
+    .getByRole("button", { name: "Adicionar planta", exact: true })
+    .click();
+  await page.getByLabel("Nome carinhoso").fill("Minha foto");
+  await page
+    .getByRole("combobox", { name: "Espécie do catálogo", exact: true })
+    .selectOption("maranta");
+  await page
+    .locator(".photo-upload input")
+    .setInputFiles("src/assets/plants/maranta.jpg");
+  await expect(page.locator(".photo-upload img")).toBeVisible();
+  await page
+    .getByRole("button", { name: "Adicionar ao meu jardim", exact: true })
+    .click();
+  await expect(page.getByRole("alert")).toContainText("limite de fotos");
+  await expect(page.getByLabel("Nome carinhoso")).toHaveValue("Minha foto");
+  expect(gardens.has(A)).toBe(false);
+  quota = false;
+  await page
+    .getByRole("button", { name: "Adicionar ao meu jardim", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Minha foto", exact: true }),
+  ).toBeVisible();
+  expect(gardens.get(A).plants).toHaveLength(1);
+});
+
+test("remoção salva o jardim e avisa sobre limpeza pendente sem ressuscitar a planta", async ({
+  page,
+}) => {
+  const { gardens } = await mockBackend(page);
+  gardens.set(A, {
+    version: 1,
+    plants: [
+      {
+        id: crypto.randomUUID(),
+        name: "Foto removível",
+        species: "Maranta leuconeura",
+        catalogId: "maranta",
+        acquired: "2026-01-01",
+        interval: 7,
+        history: [],
+        photoPath: `${A}/${crypto.randomUUID()}.jpg`,
+      },
+    ],
+  });
+  let pending = false,
+    retried = false;
+  await page.route("**/functions/v1/plant-photos", (route) => {
+    if (route.request().method() !== "POST") return route.fallback();
+    const body = route.request().postDataJSON();
+    if (body.action === "remove") {
+      pending = true;
+      return route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        headers: { "access-control-allow-origin": "*" },
+        body: JSON.stringify({ code: "photo_remove_failed" }),
+      });
+    }
+    if (body.action === "cleanup" && pending) retried = true;
+    return route.fallback();
+  });
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page
+    .getByRole("button", { name: "Foto removível", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Remover planta", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Sim, excluir", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Alteração salva");
+  expect(gardens.get(A).plants).toHaveLength(0);
+  await page
+    .getByRole("button", { name: "Atualizar dados", exact: true })
+    .click();
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  expect(retried).toBe(true);
+  await expect(
+    page.getByRole("heading", { name: "Foto removível", exact: true }),
+  ).toHaveCount(0);
 });
 test("exclusão de conta exige confirmação antes de chamar o servidor", async ({
   page,
