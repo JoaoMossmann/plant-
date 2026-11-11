@@ -486,10 +486,45 @@ test("exclusão de conta exige confirmação antes de chamar o servidor", async 
   expect(calls.deletions).toBe(0);
   await page.getByLabel("Digite EXCLUIR para confirmar").fill("EXCLUIR");
   await page.getByRole("button", { name: "Excluir permanentemente" }).click();
+  expect(calls.deletions).toBe(0);
+  await page.getByLabel("Sua senha atual").fill("a-test-password-long");
+  await page.getByRole("button", { name: "Excluir permanentemente" }).click();
   await expect(
     page.getByRole("button", { name: "Entrar / criar conta" }),
   ).toBeVisible();
   expect(calls.deletions).toBe(1);
+});
+
+test("exclusão recusada mantém sessão e limpa a senha digitada", async ({
+  page,
+}) => {
+  await mockBackend(page);
+  await page.route("**/functions/v1/delete-account", (route) =>
+    route.request().method() === "OPTIONS"
+      ? route.fallback()
+      : route.fulfill({
+          status: 403,
+          contentType: "application/json",
+          headers: { "access-control-allow-origin": "*" },
+          body: JSON.stringify({ code: "password_invalid" }),
+        }),
+  );
+  await page.goto("/");
+  await signIn(page, "a@example.invalid");
+  await page.getByRole("button", { name: "Minha conta", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Excluir minha conta e dados" })
+    .click();
+  await page.getByLabel("Digite EXCLUIR para confirmar").fill("EXCLUIR");
+  await page.getByLabel("Sua senha atual").fill("wrong-test-password");
+  await page.getByRole("button", { name: "Excluir permanentemente" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "senha atual não foi confirmada",
+  );
+  await expect(page.getByLabel("Sua senha atual")).toHaveValue("");
+  await expect(
+    page.getByRole("button", { name: "Minha conta", exact: true }),
+  ).toBeVisible();
 });
 
 test("confirmação permite reenvio após intervalo, sem entrar automaticamente", async ({

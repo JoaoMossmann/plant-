@@ -29,6 +29,7 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
     "202611040001_community_foundation.sql",
     "202611060001_write_limits.sql",
     "202611100001_protected_photos.sql",
+    "202611110001_account_deletion.sql",
   ])
     await db.exec(
       await readFile(
@@ -176,7 +177,7 @@ test("limites no PostgreSQL: saldo, reposição, cota diária, isolamento e roll
   assert.equal(reports.length, 1);
   const report = reports[0].security_inventory;
   const tables = report.tables;
-  assert.equal(tables.length, 9);
+  assert.equal(tables.length, 10);
   assert.ok(tables.every((row) => row.installed && row.rls_enabled));
   assert.ok(report.policies.some((row) => row.tablename === "gardens"));
   assert.ok(
