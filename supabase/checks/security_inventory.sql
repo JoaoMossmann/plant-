@@ -7,7 +7,7 @@ with expected(schema_name, table_name) as (values
   ('public','gardens'), ('public','profiles'), ('public','member_blocks'),
   ('public','cities'), ('storage','objects'),
   ('app_private','community_account_status'), ('app_private','write_budgets'),
-  ('app_private','photo_reservations'), ('app_private','photo_tombstones')
+  ('app_private','photo_reservations'), ('app_private','photo_tombstones'), ('app_private','account_deletions')
 ), tables_report as (
 select e.schema_name, e.table_name, c.oid is not null as installed,
   c.relrowsecurity as rls_enabled
@@ -39,7 +39,7 @@ order by 1,2,3,4,5
 select n.nspname as schema_name,p.proname,p.prosecdef as security_definer,
   p.oid::regprocedure::text as signature,p.proconfig as settings,p.proacl as permissions
 from pg_proc p join pg_namespace n on n.oid=p.pronamespace
-where (n.nspname='public' and p.proname in ('save_my_garden','reserve_my_photo','finish_photo_reservation','authorize_my_photo','prepare_my_photo_removal','pending_my_photo_removals')) or n.nspname='app_private'
+where (n.nspname='public' and p.proname in ('save_my_garden','reserve_my_photo','finish_photo_reservation','authorize_my_photo','prepare_my_photo_removal','pending_my_photo_removals','authorize_my_account_deletion','begin_account_deletion')) or n.nspname='app_private'
 order by 1,2
 ), triggers_report as (
 select event_object_schema,event_object_table,trigger_name,action_timing,event_manipulation

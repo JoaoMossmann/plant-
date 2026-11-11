@@ -23,6 +23,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm exec --yes --package deno@2.5.6 -- deno check --frozen --node-modules-dir=none --config supabase/functions/plant-photos/deno.json supabase/functions/plant-photos/index.ts
+      - run: npm exec --yes --package deno@2.5.6 -- deno check --frozen --node-modules-dir=none --config supabase/functions/delete-account/deno.json supabase/functions/delete-account/index.ts
       - run: npm exec --yes --package deno@2.5.6 -- deno test --frozen --node-modules-dir=none --allow-read --config supabase/functions/plant-photos/deno.json supabase/functions/plant-photos/runtime_test.ts
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

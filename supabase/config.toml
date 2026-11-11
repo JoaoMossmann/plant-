@@ -2,3 +2,6 @@
 # O gateway JWT legado não valida todas as chaves de assinatura atuais do Auth.
 [functions.plant-photos]
 verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false

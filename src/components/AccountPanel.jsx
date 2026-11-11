@@ -61,21 +61,42 @@ export function AccountPanel({
     [error, setError] = useState("");
   async function deleteAccount(e) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const password = String(new FormData(form).get("password") || "");
     setBusy(true);
     setError("");
     try {
       const { data, error } = await supabase.functions.invoke(
         "delete-account",
-        { body: { deleteAccount: true } },
+        { body: { deleteAccount: true, password } },
       );
-      if (error || !data?.deleted) throw new Error("delete");
+      if (error || !data?.deleted) {
+        let code;
+        try {
+          code = (await error?.context?.clone().json())?.code;
+        } catch {
+          /* resposta sem código público */
+        }
+        const messages = {
+          password_invalid:
+            "A senha atual não foi confirmada. Confira e tente novamente.",
+          deletion_rate:
+            "Você atingiu o limite de tentativas. Aguarde antes de tentar novamente.",
+          uploads_pending:
+            "Há um envio de foto em andamento ou pendente de verificação. Aguarde e tente novamente; se persistir, entre em contato com o suporte.",
+        };
+        throw new Error(
+          messages[code] ||
+            "Não foi possível concluir a exclusão agora. Tente novamente mais tarde; se persistir, entre em contato com o suporte.",
+        );
+      }
       await supabase.auth.signOut({ scope: "local" });
       onClose();
-    } catch {
-      setError(
-        "Não foi possível concluir a exclusão. Tente novamente; se persistir, a função de exclusão precisa ser ativada pelo administrador.",
-      );
+    } catch (error) {
+      setError(error.message || "Não foi possível concluir a exclusão agora.");
     } finally {
+      const field = form.elements.namedItem("password");
+      if (field) field.value = "";
       setBusy(false);
     }
   }
@@ -209,6 +230,17 @@ export function AccountPanel({
               plantas locais neste navegador permanecem. A exclusão não pode ser
               desfeita.
             </p>
+            <label>
+              Sua senha atual
+              <input
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                maxLength={128}
+                disabled={busy}
+              />
+            </label>
             <label>
               Digite EXCLUIR para confirmar
               <input
