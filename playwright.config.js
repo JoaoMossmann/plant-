@@ -19,6 +19,7 @@ export default defineConfig({
       VITE_SUPABASE_URL: "https://garden-e2e.supabase.co",
       VITE_SUPABASE_PUBLISHABLE_KEY:
         "sb_publishable_e2e_fixture_not_a_credential",
+      VITE_SERVER_PHOTOS_ENABLED: "true",
     },
   },
 });

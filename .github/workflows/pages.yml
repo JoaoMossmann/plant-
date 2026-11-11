@@ -22,12 +22,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm exec --yes --package deno@2.5.6 -- deno check --frozen --node-modules-dir=none --config supabase/functions/plant-photos/deno.json supabase/functions/plant-photos/index.ts
+      - run: npm exec --yes --package deno@2.5.6 -- deno test --frozen --node-modules-dir=none --allow-read --config supabase/functions/plant-photos/deno.json supabase/functions/plant-photos/runtime_test.ts
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SERVER_PHOTOS_ENABLED: ${{ vars.VITE_SERVER_PHOTOS_ENABLED }}
       - run: npm run audit:public
       - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6

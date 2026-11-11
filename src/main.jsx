@@ -24,8 +24,10 @@ import {
 import { catalog, lightNames, toxicityLabel, spaceNames } from "./catalog";
 import { dayKey, dueDays, validateBackup, recommend } from "./domain";
 import { readGarden, saveGarden, imageData } from "./storage";
-import { supabase, cloudConfigured } from "./lib/supabase";
+import { supabase, cloudConfigured, serverPhotosEnabled } from "./lib/supabase";
 import { createCloudGarden } from "./lib/cloud-garden";
+import { PhotoOperationError } from "./lib/photos";
+import { WriteLimitError } from "./lib/write-limit";
 import { AccountPanel } from "./components/AccountPanel";
 import { CatalogPhoto, PlantReferences } from "./components/CatalogPhoto";
 import { ProfilePage } from "./components/ProfilePage";
@@ -126,7 +128,9 @@ function App({ session, recovering, onRecovered }) {
   const store = useMemo(
     () =>
       session
-        ? createCloudGarden(supabase, session.user.id)
+        ? createCloudGarden(supabase, session.user.id, {
+            serverPhotos: serverPhotosEnabled,
+          })
         : { load: readGarden, save: saveGarden },
     [session?.user.id],
   );
@@ -138,7 +142,11 @@ function App({ session, recovering, onRecovered }) {
       if (mounted.current) {
         setPlants(next);
         setLoaded(true);
-        setError("");
+        setError(
+          store.cleanupPending
+            ? "Seu jardim foi carregado, mas há fotos removidas com limpeza pendente. Tente atualizar mais tarde."
+            : "",
+        );
       }
     } catch (err) {
       if (mounted.current)
@@ -213,9 +221,14 @@ function App({ session, recovering, onRecovered }) {
     savingRef.current = true;
     setBusy(true);
     try {
-      await store.save(next, plants);
+      const result = await store.save(next, plants);
       if (mounted.current) {
         setPlants(next);
+        setError(
+          result?.cleanupPending
+            ? "Alteração salva. A limpeza de fotos removidas está pendente; tente atualizar mais tarde."
+            : "",
+        );
         if (message) setToast(message);
       }
       return true;
@@ -225,7 +238,12 @@ function App({ session, recovering, onRecovered }) {
           err.message ||
             "Não foi possível salvar. Exporte um backup dos seus dados.",
         );
-        if (session) setLoaded(false);
+        if (
+          session &&
+          !(err instanceof PhotoOperationError) &&
+          !(err instanceof WriteLimitError)
+        )
+          setLoaded(false);
       }
       return false;
     } finally {
